@@ -1,6 +1,9 @@
 // ignore_for_file: file_names
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 // ignore: camel_case_types
 class SingInSrceen extends StatefulWidget {
@@ -12,6 +15,34 @@ class SingInSrceen extends StatefulWidget {
 
 // ignore: camel_case_types
 class _SingInscrState extends State<SingInSrceen> {
+  Future<void> sendPostRequest() async {
+    // var response = await post(Uri.parse("http://127.0.0.1:8000/account/register/"));
+    final apiUrl = "http://127.0.0.1:8000/account/register";
+    TextEditingController titleController = TextEditingController();
+    TextEditingController bodyController = TextEditingController();
+    try {
+      var response = await http.post(Uri.parse(apiUrl),
+          headers: {"Content-Type": "application/json"},
+          body: jsonEncode({
+            "title": "",
+            "body": "",
+            "userId": 1,
+          }));
+
+      if (response.statusCode == 201) {
+        // Scaffold.of(context).showSnackBar(SnackBar(
+        //   content: Text("Post created successfully!"),
+        // ));
+      } else {
+        // Scaffold.of(context).showSnackBar(SnackBar(
+        //   content: Text("Failed to create post!"),
+        // ));
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +57,7 @@ class _SingInscrState extends State<SingInSrceen> {
                 child: const Text(
                   "Create an account",
                   style: TextStyle(
-                     color:  Color(0xFF1765FC),
+                      color: Color(0xFF1765FC),
                       fontSize: 25,
                       fontWeight: FontWeight.w900),
                 )),
@@ -77,9 +108,8 @@ class _SingInscrState extends State<SingInSrceen> {
               Container(
                 margin: const EdgeInsets.only(bottom: 26),
               ),
-
-                    const SizedBox(height: 8),
- TextFormField(
+              const SizedBox(height: 8),
+              TextFormField(
                 decoration: InputDecoration(
                     fillColor: const Color(0XFFF4F7FA),
                     filled: true,
@@ -172,7 +202,7 @@ class _SingInscrState extends State<SingInSrceen> {
                     borderRadius: BorderRadius.circular(150),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: sendPostRequest,
                     child: const Text(
                       "Create an account",
                       textAlign: TextAlign.right,
@@ -183,6 +213,9 @@ class _SingInscrState extends State<SingInSrceen> {
                           fontWeight: FontWeight.w500),
                     ),
                   )),
+              const Center(
+                child: CircularProgressIndicator(),
+              ),
               const SizedBox(height: 9),
               const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 6.0),
