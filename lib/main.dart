@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/Edit_Profile.dart';
-import 'package:flutter_tickets_booking_agency/LogIn.dart';
 import 'package:flutter_tickets_booking_agency/SingUp.dart';
-
-import 'Profile.dart';
-
-///import 'package:flutter_tickets_booking_agency/Profile.dart';
-///import 'package:flutter_tickets_booking_agency/SingIn.dart';
-
+import 'screen/Edit_Profile.dart';
+import 'screen/LogIn.dart';
+import 'screen/Profile.dart';
 // void main() {
 // runApp(MyApp());
 
@@ -24,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Tickets booking agency',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const Edit_Profile(),
+      home: const SingUpsrceen(),
     );
   }
 }
