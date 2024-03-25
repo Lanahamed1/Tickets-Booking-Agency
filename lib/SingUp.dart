@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 // ignore: camel_case_types
-class SingInSrceen extends StatefulWidget {
+class SingUpSrceen extends StatefulWidget {
   // ignore: use_super_parameters
-  const SingInSrceen({Key? key}) : super(key: key);
+  const SingUpSrceen({Key? key}) : super(key: key);
   @override
-  State<SingInSrceen> createState() => _SingInscrState();
+  State<SingUpSrceen> createState() => _SingUpscrState();
 }
 
 // ignore: camel_case_types
-class _SingInscrState extends State<SingInSrceen> {
+class _SingUpscrState extends State<SingUpSrceen> {
   Future<void> sendPostRequest() async {
     // var response = await post(Uri.parse("http://127.0.0.1:8000/account/register/"));
     final apiUrl = "http://127.0.0.1:8000/account/register";

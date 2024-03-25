@@ -3,22 +3,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'dart:io';
+//import 'package:image_picker/image_picker.dart';
 class Profile extends StatefulWidget {
   // ignore: use_super_parameters
   const Profile({Key? key}) : super(key: key);
   @override
-  State<Profile> createState() => _ProfileScrState();
-
-  // Future getImageFromGallery() async {
-  //  final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-
-  //setState(() {
-  //_image = image;
-  // });
-
-  //}
-}
+  State<Profile> createState() => _ProfileScrState();}
+   File? _imgFile;
+    
+      // void takeSnapshot() async {
+      //   final ImagePicker picker = ImagePicker();
+      //   final XFile? img = await picker.pickImage(
+      //     source: ImageSource.camera, // alternatively, use ImageSource.gallery
+      //     maxWidth: 400,
+      //   );
+      //   if (img == null) return;
+      //   setState(() {
+      //     _imgFile = File(img.path); // convert it to a Dart:io file
+      //   });
+      // }
 
 // ignore: camel_case_types
 class _ProfileScrState extends State<Profile> {
@@ -52,20 +56,15 @@ class _ProfileScrState extends State<Profile> {
               Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(bottom: 30),
-                  child: Column(
+                  child: const Column(
                     children: [
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 90,
-                        //     child: _image == null
-                        //? const Text('No image selected.')
-                        //: Image.file(File(_image!.path)),
-                        // ),
-                        //floatingActionButton: FloatingActionButton(
-                        //onPressed: getImageFromGallery,
-                        //tooltip: 'Pick Image',
-                        // child: Icon(Icons.add_a_photo),
-                        //),
-                      ),
+//                           backgroundImage: (_imgFile == null)
+//   ? AssetImage('assets/person.png')
+//   : FileImage(_imgFile!) as ImageProvider,
+// )
+                    
                       ////  Positioned(
                       //bottom: 0,
                       //right: 0,
@@ -75,8 +74,8 @@ class _ProfileScrState extends State<Profile> {
                       //decoration: BoxDecoration(
                       //  borderRadius: BorderRadius.circular(100)),
                       //color: Colors.blue,
-                    ],
-                  )),
+              )])
+              ),
               const SizedBox(
                 height: 10,
               ),
@@ -134,7 +133,7 @@ class _ProfileScrState extends State<Profile> {
                     ),
                   )),
               const SizedBox(
-                height: 120,
+                height: 150,
               ),
               Container(
                   width: 350,
@@ -153,7 +152,7 @@ class _ProfileScrState extends State<Profile> {
                           fontSize: 17,
                           color: Color(0xFF1765FC),
                           fontWeight: FontWeight.bold),
-                    ),
+                ),
                   )),
             ])));
   }
