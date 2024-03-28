@@ -3,26 +3,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:io';
+
 //import 'package:image_picker/image_picker.dart';
 class Profile extends StatefulWidget {
   // ignore: use_super_parameters
   const Profile({Key? key}) : super(key: key);
   @override
-  State<Profile> createState() => _ProfileScrState();}
-   File? _imgFile;
-    
-      // void takeSnapshot() async {
-      //   final ImagePicker picker = ImagePicker();
-      //   final XFile? img = await picker.pickImage(
-      //     source: ImageSource.camera, // alternatively, use ImageSource.gallery
-      //     maxWidth: 400,
-      //   );
-      //   if (img == null) return;
-      //   setState(() {
-      //     _imgFile = File(img.path); // convert it to a Dart:io file
-      //   });
-      // }
+  State<Profile> createState() => _ProfileScrState();
+}
+//File? _imgFile;
+
+// void takeSnapshot() async {
+//   final ImagePicker picker = ImagePicker();
+//   final XFile? img = await picker.pickImage(
+//     source: ImageSource.camera, // alternatively, use ImageSource.gallery
+//     maxWidth: 400,
+//   );
+//   if (img == null) return;
+//   setState(() {
+//     _imgFile = File(img.path); // convert it to a Dart:io file
+//   });
+// }
 
 // ignore: camel_case_types
 class _ProfileScrState extends State<Profile> {
@@ -56,15 +57,14 @@ class _ProfileScrState extends State<Profile> {
               Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(bottom: 30),
-                  child: const Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 90,
+                  child: const Column(children: [
+                    CircleAvatar(
+                      radius: 90,
 //                           backgroundImage: (_imgFile == null)
 //   ? AssetImage('assets/person.png')
 //   : FileImage(_imgFile!) as ImageProvider,
 // )
-                    
+
                       ////  Positioned(
                       //bottom: 0,
                       //right: 0,
@@ -74,8 +74,8 @@ class _ProfileScrState extends State<Profile> {
                       //decoration: BoxDecoration(
                       //  borderRadius: BorderRadius.circular(100)),
                       //color: Colors.blue,
-              )])
-              ),
+                    )
+                  ])),
               const SizedBox(
                 height: 10,
               ),
@@ -122,16 +122,20 @@ class _ProfileScrState extends State<Profile> {
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
               ),
-              TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    textAlign: TextAlign.left,
-                    "ViaWise@gamil.com",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                    ),
-                  )),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                alignment: Alignment.bottomLeft,
+                child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      textAlign: TextAlign.left,
+                      "ViaWise@gamil.com",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15,
+                      ),
+                    )),
+              ),
               const SizedBox(
                 height: 150,
               ),
@@ -152,7 +156,7 @@ class _ProfileScrState extends State<Profile> {
                           fontSize: 17,
                           color: Color(0xFF1765FC),
                           fontWeight: FontWeight.bold),
-                ),
+                    ),
                   )),
             ])));
   }

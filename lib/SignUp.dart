@@ -1,17 +1,22 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Auth.dart';
+import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
-class SingUpsrceen extends StatefulWidget {
-  const SingUpsrceen({Key? key}) : super(key: key);
+class SignUpsrceen extends StatefulWidget {
+  SignUpsrceen({Key? key}) : super(key: key);
   @override
-  State<SingUpsrceen> createState() => _SingUpscrState();
-
+  State<SignUpsrceen> createState() => _SignUpscrState();
 }
-    Future<Auth>? _futureAuth;
+
+final TextEditingController first_namecontroller = TextEditingController();
+final TextEditingController last_namecontroller = TextEditingController();
+final TextEditingController emailController = TextEditingController();
+final TextEditingController passwordcontroller = TextEditingController();
 
 // ignore: camel_case_types
-class _SingUpscrState extends State<SingUpsrceen> {
+class _SignUpscrState extends State<SignUpsrceen> {
   GlobalKey<FormState> formstate = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -53,6 +58,7 @@ class _SingUpscrState extends State<SingUpsrceen> {
                 child: Column(
                   children: [
                     TextFormField(
+                      controller: first_namecontroller,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
@@ -96,6 +102,7 @@ class _SingUpscrState extends State<SingUpsrceen> {
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
+                      controller: last_namecontroller,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
@@ -138,6 +145,7 @@ class _SingUpscrState extends State<SingUpsrceen> {
                       margin: const EdgeInsets.only(bottom: 26),
                     ),
                     TextFormField(
+                      controller: emailController,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
@@ -175,6 +183,7 @@ class _SingUpscrState extends State<SingUpsrceen> {
                     ),
                     const SizedBox(height: 26),
                     TextFormField(
+                      controller: passwordcontroller,
                       validator: (value) {
                         if (value!.length > 12) {
                           return "Minmium length is 12 characters";
@@ -224,8 +233,11 @@ class _SingUpscrState extends State<SingUpsrceen> {
                           color: const Color(0xFF1765FC),
                           borderRadius: BorderRadius.circular(150),
                         ),
-                        child: MaterialButton(
+                        child: ElevatedButton(
                           onPressed: () {
+                            Auth.Authentication(
+                                'first_name', 'last_name', 'email', 'password');
+
                             if (formstate.currentState!.validate()) {
                               print("valid");
                             } else {
@@ -264,32 +276,32 @@ class _SingUpscrState extends State<SingUpsrceen> {
                                   Divider(thickness: 0.5, color: Colors.grey)),
                         ])),
                     const SizedBox(height: 8),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        MaterialButton(
-                          height: 20,
-                          onPressed: () {},
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Image.asset("images/google.png"),
-                            iconSize: 35,
-                          ),
-                        ),
-                        MaterialButton(
-                          height: 20,
-                          onPressed: () {},
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(
-                              "images/FaceBook.jpg",
-                              fit: BoxFit.cover,
-                            ),
-                            iconSize: 35,
-                          ),
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     MaterialButton(
+                    //       height: 20,
+                    //       onPressed: () {},
+                    //       child: IconButton(
+                    //         onPressed: () {},
+                    //         icon: Image.asset("images/google.png"),
+                    //         iconSize: 35,
+                    //       ),
+                    //     ),
+                    //     MaterialButton(
+                    //       height: 20,
+                    //       onPressed: () {},
+                    //       child: IconButton(
+                    //         onPressed: () {},
+                    //         icon: Image.asset(
+                    //           "images/FaceBook.jpg",
+                    //           fit: BoxFit.cover,
+                    //         ),
+                    //         iconSize: 35,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                     const SizedBox(height: 4),
                     const Center(
                       child: Text(

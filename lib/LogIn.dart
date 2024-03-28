@@ -194,32 +194,32 @@ class _LoginScrState extends State<LoginSrceen> {
                                       thickness: 0.5, color: Colors.grey)),
                             ])),
                         const SizedBox(height: 11),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            MaterialButton(
-                              height: 20,
-                              onPressed: () {},
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Image.asset("images/google.png"),
-                                iconSize: 35,
-                              ),
-                            ),
-                            MaterialButton(
-                              height: 20,
-                              onPressed: () {},
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Image.asset(
-                                  "images/FaceBook.jpg",
-                                  fit: BoxFit.cover,
-                                ),
-                                iconSize: 35,
-                              ),
-                            ),
-                          ],
-                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     MaterialButton(
+                        //       height: 20,
+                        //       onPressed: () {},
+                        //       child: IconButton(
+                        //         onPressed: () {},
+                        //         icon: Image.asset("images/google.png"),
+                        //         iconSize: 35,
+                        //       ),
+                        //     ),
+                        //     MaterialButton(
+                        //       height: 20,
+                        //       onPressed: () {},
+                        //       child: IconButton(
+                        //         onPressed: () {},
+                        //         icon: Image.asset(
+                        //           "images/FaceBook.jpg",
+                        //           fit: BoxFit.cover,
+                        //         ),
+                        //         iconSize: 35,
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                         const SizedBox(height: 6),
                         Container(
                           alignment: Alignment.center,
