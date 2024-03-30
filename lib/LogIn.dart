@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class LoginSrceen extends StatefulWidget {
-  const LoginSrceen({Key? key}) : super(key: key);
+class LogInSrceen extends StatefulWidget {
+  const LogInSrceen({Key? key}) : super(key: key);
   @override
-  State<LoginSrceen> createState() => _LoginScrState();
+  State<LogInSrceen> createState() => _LogInScrState();
 }
 
-class _LoginScrState extends State<LoginSrceen> {
+class _LogInScrState extends State<LogInSrceen> {
   GlobalKey<FormState> formstate = GlobalKey();
   @override
   Widget build(BuildContext context) {

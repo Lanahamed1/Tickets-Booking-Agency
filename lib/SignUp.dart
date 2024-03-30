@@ -10,8 +10,8 @@ class SignUpsrceen extends StatefulWidget {
   State<SignUpsrceen> createState() => _SignUpscrState();
 }
 
-final TextEditingController first_namecontroller = TextEditingController();
-final TextEditingController last_namecontroller = TextEditingController();
+final TextEditingController first_nameController = TextEditingController();
+final TextEditingController last_nameController = TextEditingController();
 final TextEditingController emailController = TextEditingController();
 final TextEditingController passwordcontroller = TextEditingController();
 
@@ -58,7 +58,7 @@ class _SignUpscrState extends State<SignUpsrceen> {
                 child: Column(
                   children: [
                     TextFormField(
-                      controller: first_namecontroller,
+                      controller: first_nameController,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
@@ -102,7 +102,7 @@ class _SignUpscrState extends State<SignUpsrceen> {
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
-                      controller: last_namecontroller,
+                      controller: last_nameController,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
