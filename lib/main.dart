@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Tickets booking agency',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SelectFight(),
+      home: SignUpsrceen(),
     );
   }
 }
