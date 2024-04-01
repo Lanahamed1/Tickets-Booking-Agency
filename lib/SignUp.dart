@@ -10,10 +10,10 @@ class SignUpsrceen extends StatefulWidget {
   State<SignUpsrceen> createState() => _SignUpscrState();
 }
 
-final TextEditingController first_nameController = TextEditingController();
-final TextEditingController last_nameController = TextEditingController();
-final TextEditingController emailController = TextEditingController();
-final TextEditingController passwordcontroller = TextEditingController();
+final TextEditingController first_name = TextEditingController();
+final TextEditingController last_name = TextEditingController();
+final TextEditingController username = TextEditingController();
+final TextEditingController password = TextEditingController();
 
 // ignore: camel_case_types
 class _SignUpscrState extends State<SignUpsrceen> {
@@ -58,7 +58,7 @@ class _SignUpscrState extends State<SignUpsrceen> {
                 child: Column(
                   children: [
                     TextFormField(
-                      controller: first_nameController,
+                      controller: first_name,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
@@ -102,7 +102,7 @@ class _SignUpscrState extends State<SignUpsrceen> {
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
-                      controller: last_nameController,
+                      controller: last_name,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
@@ -145,7 +145,7 @@ class _SignUpscrState extends State<SignUpsrceen> {
                       margin: const EdgeInsets.only(bottom: 26),
                     ),
                     TextFormField(
-                      controller: emailController,
+                      controller: username,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
@@ -183,7 +183,7 @@ class _SignUpscrState extends State<SignUpsrceen> {
                     ),
                     const SizedBox(height: 26),
                     TextFormField(
-                      controller: passwordcontroller,
+                      controller: password,
                       validator: (value) {
                         if (value!.length > 12) {
                           return "Minmium length is 12 characters";
@@ -234,14 +234,29 @@ class _SignUpscrState extends State<SignUpsrceen> {
                           borderRadius: BorderRadius.circular(150),
                         ),
                         child: ElevatedButton(
-                          onPressed: () {
-                            Auth.Authentication(
-                                'first_name', 'last_name', 'email', 'password');
-
+                          onPressed: () async {
                             if (formstate.currentState!.validate()) {
-                              print("valid");
+                              var result = await Auth.SignUp(first_name.text,
+                                  last_name.text, username.text, password.text);
+                              if (result == true) {
+                                const snackBar = SnackBar(
+                                  content: Text("Signed Up successfully!"),
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              } else {
+                                const snackBar = SnackBar(
+                                  content: Text("This account already exists!"),
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              }
                             } else {
-                              print("not valid");
+                              const snackBar = SnackBar(
+                                content: Text("Form isn't valid!"),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
                             }
                           },
                           child: const Text(

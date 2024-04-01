@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tickets_booking_agency/Booking/Passenger.dart';
+import 'package:flutter_tickets_booking_agency/Booking/SelectFight.dart';
 import 'package:flutter_tickets_booking_agency/SignUp.dart';
 import 'Edit_Profile.dart';
 import 'LogIn.dart';
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Tickets booking agency',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SignUpsrceen(),
+      home: SelectFight(),
     );
   }
 }

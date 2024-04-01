@@ -11,6 +11,7 @@ class Edit_Profile extends StatefulWidget {
 
 String selectedGender = 'Male';
 
+
 // ignore: camel_case_types
 class _Edit_ProfileState extends State<Edit_Profile> {
   @override
@@ -59,6 +60,7 @@ class _Edit_ProfileState extends State<Edit_Profile> {
               height: 9,
             ),
             TextFormField(
+              enabled: true,
               decoration: InputDecoration(
                 fillColor: Colors.white,
                 border:
@@ -85,6 +87,7 @@ class _Edit_ProfileState extends State<Edit_Profile> {
               height: 9,
             ),
             TextFormField(
+              enabled: true,
               decoration: InputDecoration(
                 fillColor: Colors.white,
                 border:
@@ -111,6 +114,7 @@ class _Edit_ProfileState extends State<Edit_Profile> {
               height: 9,
             ),
             TextFormField(
+              enabled: true,
               decoration: InputDecoration(
                 fillColor: Colors.white,
                 border:
@@ -137,6 +141,7 @@ class _Edit_ProfileState extends State<Edit_Profile> {
               height: 9,
             ),
             TextFormField(
+              enabled: false,
               decoration: InputDecoration(
                 fillColor: Colors.white,
                 border:
@@ -167,6 +172,7 @@ class _Edit_ProfileState extends State<Edit_Profile> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TextFormField(
+                enabled: false,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   border: OutlineInputBorder(

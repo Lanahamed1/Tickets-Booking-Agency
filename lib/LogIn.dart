@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tickets_booking_agency/Auth.dart';
 
 class LogInSrceen extends StatefulWidget {
-  const LogInSrceen({Key? key}) : super(key: key);
+  LogInSrceen({Key? key}) : super(key: key);
   @override
+
+  // ignore: override_on_non_overriding_member
+
   State<LogInSrceen> createState() => _LogInScrState();
 }
+
+final TextEditingController username = TextEditingController();
+final TextEditingController password = TextEditingController();
 
 class _LogInScrState extends State<LogInSrceen> {
   GlobalKey<FormState> formstate = GlobalKey();
@@ -49,6 +56,7 @@ class _LogInScrState extends State<LogInSrceen> {
                 child: Column(
                   children: [
                     TextFormField(
+                      controller: username,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "The field is empty";
@@ -88,6 +96,7 @@ class _LogInScrState extends State<LogInSrceen> {
                       margin: const EdgeInsets.only(bottom: 25),
                     ),
                     TextFormField(
+                      controller: password,
                       validator: (value) {
                         if (value!.length > 12) {
                           return "Minmium length is 12 characters";
@@ -154,11 +163,30 @@ class _LogInScrState extends State<LogInSrceen> {
                               borderRadius: BorderRadius.circular(150),
                             ),
                             child: MaterialButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 if (formstate.currentState!.validate()) {
-                                  print("valid");
+                                  var result = await Auth.LogIN(
+                                      username.text, password.text);
+                                  if (result == true) {
+                                    const snackBar = SnackBar(
+                                      content: Text("Signed in  successfully!"),
+                                    );
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  } else {
+                                    const snackBar = SnackBar(
+                                      content:
+                                          Text("Error something isn't valid!"),
+                                    );
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  }
                                 } else {
-                                  print("not valid");
+                                  const snackBar = SnackBar(
+                                    content: Text("Form isn't valid!"),
+                                  );
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
                                 }
                               },
                               child: const Text(

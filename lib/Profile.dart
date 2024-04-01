@@ -8,9 +8,15 @@ import 'package:flutter/widgets.dart';
 class Profile extends StatefulWidget {
   // ignore: use_super_parameters
   const Profile({Key? key}) : super(key: key);
+
+
+  
+
   @override
   State<Profile> createState() => _ProfileScrState();
-}
+}String selectedGender = 'Male';
+
+
 //File? _imgFile;
 
 // void takeSnapshot() async {
@@ -90,24 +96,232 @@ class _ProfileScrState extends State<Profile> {
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                child: MaterialButton(
-                  onPressed: () {},
-                  child: ListTile(
-                      leading: Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: const Icon(Icons.my_library_books),
-                      ),
-                      title: Text(
-                        "My booking ",
-                        style: Theme.of(context).textTheme.bodyText1,
-                      )),
+              const Text(
+              "User details",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "First_name",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            TextFormField(
+              enabled: true,
+              decoration: InputDecoration(
+                fillColor: Colors.white,
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                label: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 9),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              "Last_name",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            TextFormField(
+              enabled: true,
+              decoration: InputDecoration(
+                fillColor: Colors.white,
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                label: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 9),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              "Email",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            TextFormField(
+              enabled: true,
+              decoration: InputDecoration(
+                fillColor: Colors.white,
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                label: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 9),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              "Age",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            TextFormField(
+              enabled: false,
+              decoration: InputDecoration(
+                fillColor: Colors.white,
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                label: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 9),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              "Address",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: TextFormField(
+                enabled: false,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  filled: true,
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                  label: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 9),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            const Text(
+              "Gender",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            DropdownButton<String>(
+              borderRadius: BorderRadius.circular(20),
+              iconSize: 24,
+              iconDisabledColor: Colors.black,
+              elevation: 5,
+              value: selectedGender,
+              items: <String>['Male', 'Female'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  selectedGender = newValue!;
+                });
+                print('Selected Gender: $newValue');
+              },
+              underline: Container(),
+            ),
+            const SizedBox(height: 90),
+            Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40),
+                width: 400,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF1765FC),
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: MaterialButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Save",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                        letterSpacing: 0.5,
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500),
+                  ),
+                )),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               ListTile(
                 leading: Container(
                   width: 50,
