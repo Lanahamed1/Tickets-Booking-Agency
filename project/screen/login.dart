@@ -14,7 +14,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.transparent,
+          backgroundColor: const Color(0XFFF4F7FA),
           elevation: 0.0,
           title: SizedBox(
             child: Container(
@@ -25,7 +25,7 @@ class _LoginState extends State<Login> {
           ),
         ),
         body: Container(
-            color: Colors.transparent,
+            color: const Color(0XFFF4F7FA),
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: ListView(children: [
               const SizedBox(height: 0),

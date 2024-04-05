@@ -7,7 +7,7 @@ class myflightspage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: const Center(
-        child: Text("My flights page"),
+        child: Text("booking page"),
       ),
     );
   }

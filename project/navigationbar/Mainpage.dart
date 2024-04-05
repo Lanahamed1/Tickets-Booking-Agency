@@ -1,5 +1,4 @@
 import 'package:app/appstyle.dart';
-import 'package:app/navigationbar/offer_page.dart';
 import 'package:flutter/material.dart';
 import 'Homepage.dart';
 import 'explorepage.dart';
@@ -18,9 +17,9 @@ class _Mainpage extends State<Mainpage> {
   List pages = [
     const Homepage(),
     const explorepage(),
+    const Offer_page(),
     const myflightspage(),
     const account_page(),
-    const Offer_page()
   ];
   int currentIndex = 0;
 

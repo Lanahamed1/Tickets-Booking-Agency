@@ -7,7 +7,7 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color(0XFFF4F7FA),
         body: SafeArea(
             child: ListView(children: [
           Column(children: [
