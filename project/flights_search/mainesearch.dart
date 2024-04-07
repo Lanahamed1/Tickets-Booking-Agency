@@ -10,27 +10,6 @@ class Mainesearch extends StatefulWidget {
 class _Mainesearch extends State<Mainesearch> {
   DateTime? startDate;
   DateTime? endDate;
-  DateTime? oneDate;
-
-  Future<void> _selectOneDate(BuildContext context) async {
-    final DateTime? choose = await showDatePicker(
-      context: context,
-      initialDate: oneDate ?? DateTime.now(),
-      firstDate: DateTime.now(),
-      lastDate: DateTime(
-        2025,
-      ),
-    );
-    if (choose == null) {
-      setState(() {
-        print("select date");
-      });
-    } else {
-      setState(() {
-        oneDate = choose;
-      });
-    }
-  }
 
   Future<void> _selectStartDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -62,24 +41,23 @@ class _Mainesearch extends State<Mainesearch> {
     }
   }
 
+  String? selectclass = "Economy";
+  String? selecttype = "Economy";
   final List<String> seatclasstype = [
     'Economy',
-    'Premium Economy',
     'First Class',
     'Business Class',
   ];
+
   final List<String> passengerNumbers = [
     '1',
     '2',
     '3',
     '4',
     '5',
-    '6',
-    '7',
-    '8',
-    '9'
   ];
-
+  String? selectitem = '1';
+  String? selectpp = '1';
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -244,7 +222,7 @@ class _Mainesearch extends State<Mainesearch> {
                             children: [
                               Container(
                                 child: MaterialButton(
-                                  onPressed: () => _selectOneDate(context),
+                                  onPressed: () => _selectStartDate(context),
                                   child: Container(
                                       padding: const EdgeInsets.only(
                                           left: 3, bottom: 10),
@@ -276,7 +254,7 @@ class _Mainesearch extends State<Mainesearch> {
                                                 height: 8,
                                               ),
                                               Text(
-                                                ' $oneDate',
+                                                'Select Date:  $startDate',
                                                 style: Styles.headLineStyle17,
                                                 textAlign: TextAlign.left,
                                               )
@@ -308,15 +286,15 @@ class _Mainesearch extends State<Mainesearch> {
                                   children: [
                                     Container(
                                       padding: const EdgeInsets.only(
-                                          right: 2, top: 4),
+                                          right: 2, top: 4, left: 10),
                                       child: const Icon(
-                                        Icons.flight_class_outlined,
+                                        Icons.people_outline,
                                         color: Colors.grey,
                                       ),
                                     ),
                                     const SizedBox(width: 13),
                                     Text(
-                                      "Cabin Class",
+                                      "Passengers",
                                       style: Styles.headLineStyle7,
                                     ),
                                   ],
@@ -325,21 +303,21 @@ class _Mainesearch extends State<Mainesearch> {
                                   padding: const EdgeInsets.only(left: 44),
                                   child: Row(
                                     children: [
-                                      DropdownButton<String>(
-                                        value: seatclasstype[0],
-                                        items:
-                                            seatclasstype.map((String value) {
-                                          return DropdownMenuItem<String>(
-                                            value: value,
-                                            child: Text(value),
-                                          );
-                                        }).toList(),
-                                        onChanged: (String? newValue) {
-                                          setState(() {
-                                            print('Selected: $newValue');
-                                          });
-                                        },
-                                      ),
+                                      DropdownButton(
+                                          focusColor: Colors.white,
+                                          alignment:
+                                              AlignmentDirectional.center,
+                                          dropdownColor:
+                                              const Color(0XFFF4F7FA),
+                                          elevation: 0,
+                                          value: selectitem,
+                                          items: passengerNumbers
+                                              .map((item) => DropdownMenuItem(
+                                                  value: item,
+                                                  child: Text(item)))
+                                              .toList(),
+                                          onChanged: (item) => setState(
+                                              () => selectitem = item)),
                                       const SizedBox(
                                         height: 8,
                                       ),
@@ -369,15 +347,15 @@ class _Mainesearch extends State<Mainesearch> {
                                   children: [
                                     Container(
                                       padding: const EdgeInsets.only(
-                                          right: 2, top: 4),
+                                          right: 2, top: 4, left: 10),
                                       child: const Icon(
-                                        Icons.person_sharp,
+                                        Icons.flight_class_outlined,
                                         color: Colors.grey,
                                       ),
                                     ),
                                     const SizedBox(width: 13),
                                     Text(
-                                      "Passengers",
+                                      "Cabin Class",
                                       style: Styles.headLineStyle7,
                                     ),
                                   ],
@@ -386,21 +364,21 @@ class _Mainesearch extends State<Mainesearch> {
                                   padding: const EdgeInsets.only(left: 44),
                                   child: Row(
                                     children: [
-                                      DropdownButton<String>(
-                                        value: passengerNumbers[0],
-                                        items: passengerNumbers
-                                            .map((String value) {
-                                          return DropdownMenuItem<String>(
-                                            value: value,
-                                            child: Text(value),
-                                          );
-                                        }).toList(),
-                                        onChanged: (String? newValue) {
-                                          setState(() {
-                                            print('Selected: $newValue');
-                                          });
-                                        },
-                                      ),
+                                      DropdownButton(
+                                          focusColor: Colors.white,
+                                          alignment:
+                                              AlignmentDirectional.center,
+                                          dropdownColor:
+                                              const Color(0XFFF4F7FA),
+                                          elevation: 0,
+                                          value: selecttype,
+                                          items: seatclasstype
+                                              .map((item) => DropdownMenuItem(
+                                                  value: item,
+                                                  child: Text(item)))
+                                              .toList(),
+                                          onChanged: (item) => setState(
+                                              () => selecttype = item)),
                                       const SizedBox(
                                         height: 8,
                                       ),
@@ -422,11 +400,11 @@ class _Mainesearch extends State<Mainesearch> {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Container(
-                              width: 350,
+                              width: 320,
                               height: 45,
                               decoration: BoxDecoration(
                                 color: const Color(0xFF1765FC),
@@ -434,7 +412,7 @@ class _Mainesearch extends State<Mainesearch> {
                               ),
                               child: MaterialButton(
                                   onPressed: () {},
-                                  child: Text("Flights Search",
+                                  child: Text("Search Flights",
                                       textAlign: TextAlign.right,
                                       style: Styles.headLineStyle9))),
                         ]),
@@ -579,7 +557,7 @@ class _Mainesearch extends State<Mainesearch> {
                                 ])),
                           ),
                           Container(
-                            padding: EdgeInsets.only(left: 20),
+                            padding: const EdgeInsets.only(left: 20),
                             child: Text(
                               'Select Date: $startDate',
                               textAlign: TextAlign.center,
@@ -596,7 +574,7 @@ class _Mainesearch extends State<Mainesearch> {
                               ))),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 150,
                         height: 30,
                       ),
@@ -629,7 +607,7 @@ class _Mainesearch extends State<Mainesearch> {
                                   ),
                                 ])),
                           ),
-                          Text('slecte Date:$endDate'),
+                          Text('Select Date: $endDate'),
                         ],
                       ),
                     ],
@@ -652,15 +630,16 @@ class _Mainesearch extends State<Mainesearch> {
                         Row(
                           children: [
                             Container(
-                              padding: const EdgeInsets.only(right: 2, top: 4),
+                              padding: const EdgeInsets.only(
+                                  right: 2, top: 4, left: 10),
                               child: const Icon(
-                                Icons.flight_class_outlined,
+                                Icons.people_outline,
                                 color: Colors.grey,
                               ),
                             ),
                             const SizedBox(width: 13),
                             Text(
-                              "Cabin Class",
+                              "Passengers",
                               style: Styles.headLineStyle7,
                             ),
                           ],
@@ -669,20 +648,18 @@ class _Mainesearch extends State<Mainesearch> {
                           padding: const EdgeInsets.only(left: 44),
                           child: Row(
                             children: [
-                              DropdownButton<String>(
-                                value: seatclasstype[0],
-                                items: seatclasstype.map((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-                                onChanged: (String? newValue) {
-                                  setState(() {
-                                    print('Selected: $newValue');
-                                  });
-                                },
-                              ),
+                              DropdownButton(
+                                  focusColor: Colors.white,
+                                  alignment: AlignmentDirectional.center,
+                                  dropdownColor: const Color(0XFFF4F7FA),
+                                  elevation: 0,
+                                  value: selectpp,
+                                  items: passengerNumbers
+                                      .map((item) => DropdownMenuItem(
+                                          value: item, child: Text(item)))
+                                      .toList(),
+                                  onChanged: (item) =>
+                                      setState(() => selectpp = item)),
                               const SizedBox(
                                 height: 8,
                               ),
@@ -711,15 +688,16 @@ class _Mainesearch extends State<Mainesearch> {
                         Row(
                           children: [
                             Container(
-                              padding: const EdgeInsets.only(right: 2, top: 4),
+                              padding: const EdgeInsets.only(
+                                  right: 2, top: 4, left: 10),
                               child: const Icon(
-                                Icons.person_sharp,
+                                Icons.flight_class_outlined,
                                 color: Colors.grey,
                               ),
                             ),
                             const SizedBox(width: 13),
                             Text(
-                              "Passengers",
+                              "Cabin Class",
                               style: Styles.headLineStyle7,
                             ),
                           ],
@@ -728,20 +706,18 @@ class _Mainesearch extends State<Mainesearch> {
                           padding: const EdgeInsets.only(left: 44),
                           child: Row(
                             children: [
-                              DropdownButton<String>(
-                                value: passengerNumbers[0],
-                                items: passengerNumbers.map((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-                                onChanged: (String? newValue) {
-                                  setState(() {
-                                    print('Selected: $newValue');
-                                  });
-                                },
-                              ),
+                              DropdownButton(
+                                  focusColor: Colors.white,
+                                  alignment: AlignmentDirectional.center,
+                                  dropdownColor: const Color(0XFFF4F7FA),
+                                  elevation: 0,
+                                  value: selectclass,
+                                  items: seatclasstype
+                                      .map((item) => DropdownMenuItem(
+                                          value: item, child: Text(item)))
+                                      .toList(),
+                                  onChanged: (item) =>
+                                      setState(() => selectclass = item)),
                               const SizedBox(
                                 height: 8,
                               ),
@@ -763,7 +739,7 @@ class _Mainesearch extends State<Mainesearch> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
@@ -775,7 +751,7 @@ class _Mainesearch extends State<Mainesearch> {
                       ),
                       child: MaterialButton(
                           onPressed: () {},
-                          child: Text("Flights Search",
+                          child: Text("Search Flights",
                               textAlign: TextAlign.right,
                               style: Styles.headLineStyle9))),
                 ],

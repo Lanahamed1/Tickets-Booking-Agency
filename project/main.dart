@@ -1,7 +1,6 @@
 //im0port 'package:app/screen/singup.dart';
 //import 'package:app/appstyle.dart';
 //import 'package:app/screen/login.dart';
-//import 'package:app/flights_search/DateSelectionScreen.dart';
 import 'package:app/flights_search/mainesearch.dart';
 import 'package:flutter/material.dart';
 //import 'package:app/navigationbar/Mainpage.dart';
@@ -20,6 +19,6 @@ class MyApp extends StatelessWidget {
         title: 'Tickets booking agency',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: Mainesearch());
+        home: const Start());
   }
 }

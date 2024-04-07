@@ -8,6 +8,7 @@ class Styles {
   static Color textColor2 = Colors.grey;
   static Color textColor3 = Colors.white;
   static Color textColor4 = const Color(0XFF2680FF);
+
   static Color textColor5 = Colors.black87;
 
   static Color bgColor = const Color(0XFFF4F7FA);
