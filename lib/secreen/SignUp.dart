@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Auth.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/Mainpage.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 
@@ -8,6 +9,18 @@ class SignUpsrceen extends StatefulWidget {
   SignUpsrceen({Key? key}) : super(key: key);
   @override
   State<SignUpsrceen> createState() => _SignUpscrState();
+}
+
+void goTologIn(BuildContext ctx) {
+  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+    return Mainpage();
+  }));
+}
+
+void tohome(BuildContext ctx) {
+  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+    return Mainpage();
+  }));
 }
 
 final TextEditingController first_name = TextEditingController();
@@ -258,6 +271,7 @@ class _SignUpscrState extends State<SignUpsrceen> {
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(snackBar);
                             }
+                            tohome(context);
                           },
                           child: const Text(
                             "Create an account",
@@ -342,7 +356,9 @@ class _SignUpscrState extends State<SignUpsrceen> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 11, vertical: 18),
                           minWidth: 20,
-                          onPressed: () {},
+                          onPressed: () {
+                            goTologIn(context);
+                          },
                           child: const Text(
                             "Sign in",
                             style: TextStyle(

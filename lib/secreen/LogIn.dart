@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Auth.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/Mainpage.dart';
+import 'package:flutter_tickets_booking_agency/secreen/SignUp.dart';
 
 class LogInSrceen extends StatefulWidget {
   LogInSrceen({Key? key}) : super(key: key);
@@ -8,6 +12,18 @@ class LogInSrceen extends StatefulWidget {
   // ignore: override_on_non_overriding_member
 
   State<LogInSrceen> createState() => _LogInScrState();
+}
+
+void tohome(BuildContext ctx) {
+  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+    return Mainpage();
+  }));
+}
+
+void goTosignUp(BuildContext ctx) {
+  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+    return SignUpsrceen();
+  }));
 }
 
 final TextEditingController username = TextEditingController();
@@ -188,6 +204,7 @@ class _LogInScrState extends State<LogInSrceen> {
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackBar);
                                 }
+                                tohome(context);
                               },
                               child: const Text(
                                 "Sign in",
@@ -270,7 +287,9 @@ class _LogInScrState extends State<LogInSrceen> {
                               borderRadius: BorderRadius.circular(150),
                             ),
                             child: MaterialButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                tohome(context);
+                              },
                               child: const Text(
                                 "Sign in as a guest",
                                 textAlign: TextAlign.right,
@@ -296,7 +315,9 @@ class _LogInScrState extends State<LogInSrceen> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 11, vertical: 18),
                               minWidth: 20,
-                              onPressed: () {},
+                              onPressed: () {
+                                goTosignUp(context);
+                              },
                               child: const Text(
                                 "Register",
                                 style: TextStyle(

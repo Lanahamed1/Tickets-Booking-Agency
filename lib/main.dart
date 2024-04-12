@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/Booking/Passenger.dart';
-import 'package:flutter_tickets_booking_agency/Booking/SelectFight.dart';
-import 'package:flutter_tickets_booking_agency/SignUp.dart';
-import 'Edit_Profile.dart';
-import 'LogIn.dart';
-import 'Profile.dart';
+import 'package:flutter_tickets_booking_agency/Auth.dart';
+import 'package:flutter_tickets_booking_agency/Booking/flight_card.dart';
+import 'package:flutter_tickets_booking_agency/Booking/Booking.dart';
+import 'package:flutter_tickets_booking_agency/Booking/Flights.dart';
+import 'package:flutter_tickets_booking_agency/flights_search/mainesearch.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/Homepage.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/Mainpage.dart';
 // void main() {
 // runApp(MyApp());
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Tickets booking agency',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SignUpsrceen(),
+      home: Mainesearch(),
     );
   }
 }
