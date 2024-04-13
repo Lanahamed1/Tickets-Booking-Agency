@@ -5,10 +5,12 @@ import 'package:flutter_tickets_booking_agency/flights_search/mainesearch.dart';
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
 
-void tosearsh(BuildContext ctx) {
+  void tosearsh(BuildContext ctx) {
     Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
       return Mainesearch();
-    }));}
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +25,10 @@ void tosearsh(BuildContext ctx) {
                   decoration: const BoxDecoration(
                       borderRadius:
                           BorderRadius.vertical(bottom: Radius.circular(80))),
-                  // child: Image.asset(
-                  // "images/christopher-jolly-HQ8G4WAQfsg-unsplash.jpg",
-                  // fit: BoxFit.cover,
-                  // ),
+                  child: Image.asset(
+                    "assets/images/photo.jpg",
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Container(
                   padding: const EdgeInsets.all(10),
@@ -58,7 +60,7 @@ void tosearsh(BuildContext ctx) {
                                     //color: Color.fromARGB(255, 131, 148, 173),
                                     height: 50,
                                     onPressed: () {
-                                     tosearsh(context);
+                                      tosearsh(context);
                                     },
                                     child: const Icon(
                                       Icons.flight_takeoff_outlined,
@@ -115,18 +117,16 @@ void tosearsh(BuildContext ctx) {
                       ),
                     ),
                     const SizedBox(
-                      width: 310,
+                      width: 150,
                     ),
                     const Icon(Icons.arrow_forward_ios, color: Colors.black),
                   ],
                 ),
               ),
-
-              // Text(
-              //  "View all",
-              // style:
-              //  Styles.textStyle.copyWith(color: Styles.primaryColor),
-
+              Text(
+                "View all",
+                style: Styles.textStyle.copyWith(color: Styles.primaryColor),
+              ),
               const SizedBox(height: (8)),
               const SingleChildScrollView(
                 padding: EdgeInsets.only(left: 16),

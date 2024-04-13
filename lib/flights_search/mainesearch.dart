@@ -7,8 +7,15 @@ import 'package:flutter_tickets_booking_agency/navigationbar/Mainpage.dart';
 
 class Mainesearch extends StatefulWidget {
   const Mainesearch({super.key});
+
   @override
   State<Mainesearch> createState() => _Mainesearch();
+}
+
+void toflights(BuildContext ctx) {
+  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+    return Flights();
+  }));
 }
 
 class _Mainesearch extends State<Mainesearch> {
@@ -93,15 +100,13 @@ class _Mainesearch extends State<Mainesearch> {
               backgroundColor: Colors.transparent,
               title: Row(
                 children: [
-                  IconButton(
-                    alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.only(right: 10),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.arrow_back),
-                    color: Colors.black,
-                  ),
+                  // IconButton(
+                  //   alignment: Alignment.centerLeft,
+                  //   padding: const EdgeInsets.only(right: 10),
+                  //   onPressed: () {},
+                  // //  icon: const Icon(Icons.arrow_back),
+                  //   color: Colors.black,
+                  // ),
                   Text("Flights Search", style: Styles.headLineStyle15),
                 ],
               ),
@@ -503,6 +508,8 @@ class _Mainesearch extends State<Mainesearch> {
                                   settings: RouteSettings(arguments: flights),
                                 ),
                               );
+
+                              toflights(context);
                             },
                             child: Text("Search Flights",
                                 textAlign: TextAlign.right,
@@ -917,6 +924,8 @@ class _Mainesearch extends State<Mainesearch> {
                                 ),
                               );
                             };
+
+                            toflights(context);
                           },
                           child: Text("Search Flights",
                               textAlign: TextAlign.right,

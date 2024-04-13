@@ -18,10 +18,7 @@ class _FlightsState extends State<Flights> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          leading:
-              IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-          centerTitle: true,
-          elevation: 0.0,
+
           title: SizedBox(
             child: Container(
                 margin: const EdgeInsets.only(top: 3),
