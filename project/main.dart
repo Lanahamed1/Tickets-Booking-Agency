@@ -1,10 +1,11 @@
-//im0port 'package:app/screen/singup.dart';
-//import 'package:app/appstyle.dart';
-//import 'package:app/screen/login.dart';
-import 'package:app/flights_search/mainesearch.dart';
+import 'package:app/view/screen/login.dart';
 import 'package:flutter/material.dart';
-//import 'package:app/navigationbar/Mainpage.dart';
-import 'package:app/screen/welcome_page.dart';
+import 'package:get/get.dart';
+//import 'package:app/view/screen/welcome_page.dart';
+//import 'package:app/view/screen/login.dart';
+//import 'package:app/view/screen/singup.dart';
+import 'package:app/view/navigationbar/Mainpage.dart';
+import 'package:app/view/flights_search/mainesearch.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +16,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         title: 'Tickets booking agency',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const Start());
+        home: FlightSearchView());
   }
 }
