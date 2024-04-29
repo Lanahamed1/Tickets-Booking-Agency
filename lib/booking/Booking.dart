@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_tickets_booking_agency/Auth.dart';
 import 'package:date_format_field/date_format_field.dart';
+import 'package:flutter_tickets_booking_agency/booking/create.dart';
 
 class Booking extends StatefulWidget {
-  final int id;
-  const Booking({super.key, required this.id});
+  const Booking({super.key});
 
   @override
   State<Booking> createState() => _BookingStateState();

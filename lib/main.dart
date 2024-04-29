@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/Auth.dart';
-import 'package:flutter_tickets_booking_agency/Booking/flight_card.dart';
-import 'package:flutter_tickets_booking_agency/Booking/Booking.dart';
-import 'package:flutter_tickets_booking_agency/Booking/Flights.dart';
-import 'package:flutter_tickets_booking_agency/flights_search/mainesearch.dart';
-import 'package:flutter_tickets_booking_agency/navigationbar/Homepage.dart';
-import 'package:flutter_tickets_booking_agency/navigationbar/Mainpage.dart';
-import 'package:flutter_tickets_booking_agency/secreen/SignUp.dart';
-import 'package:flutter_tickets_booking_agency/secreen/welcome_page.dart';
-// void main() {
-// runApp(MyApp());
+import 'package:flutter_tickets_booking_agency/navigationbar/homepage.dart';
+import 'package:get/get.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -20,11 +13,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tickets booking agency',
+    return GetMaterialApp(
+      title: 'VieWise',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home:Welcome(),
+      home: Homepage(),
     );
   }
 }

@@ -14,6 +14,7 @@ class FlightCard extends StatelessWidget {
   // final String notes;
 
   FlightCard(
+      
       {required this.id,
       required this.price,
       required this.departureTime,
@@ -23,18 +24,12 @@ class FlightCard extends StatelessWidget {
       required this.airline
       // required this.notes,
       });
-  void selectFlight(BuildContext ctx, id) {
-    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-      return Booking(id: id);
-    }));
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onDoubleTap: () {
         print("this" + "$id");
-        selectFlight(context, id);
       },
       child: Card(
           margin: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
@@ -119,44 +114,6 @@ class FlightCard extends StatelessWidget {
                               )
                             ],
                           ),
-                          const SizedBox(height: 20.0),
-                          //         Row(
-                          //           children: [
-                          //             Column(children: [
-                          //               Padding(
-                          //                 padding: const EdgeInsets.only(
-                          //                     top: 0, bottom: 0, left: 320, right: 0),
-                          //                 child: TextButton(
-                          //                     onPressed: () {
-                          //                       setState(() {
-                          //                         _showDetails = !_showDetails;
-                          //                       });
-                          //                     },
-                          //                     child: Text(
-                          //                       _showDetails
-                          //                           ? 'Hide Details'
-                          //                           : 'More Details',
-                          //                       style: const TextStyle(
-                          //                         color: Color(0xFF1765FC),
-                          //                       ),
-                          //                     )),
-                          //               ),
-                          //               if (_showDetails)
-                          //                 const Column(
-                          //                   crossAxisAlignment:
-                          //                       CrossAxisAlignment.start,
-                          //                   children: [
-                          //                     Text(notes),
-                          //                     // Add more detailed information widgets here
-                          //                   ],
-                          //                 ),
-                          //             ]),
-                          //           ],
-                          //         ),
-                          //       ],
-                          //     ),
-                          //   ),
-                          // )),
                           Align(
                             alignment: Alignment.topRight,
                             child: Container(

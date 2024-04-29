@@ -1,35 +1,21 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/Auth.dart';
-import 'package:flutter_tickets_booking_agency/navigationbar/Mainpage.dart';
-import 'package:http/http.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter_tickets_booking_agency/Screen/sign_up_controller.dart';
+import 'package:flutter_tickets_booking_agency/Screen/user_model.dart';
 
-class SignUpsrceen extends StatefulWidget {
-  SignUpsrceen({Key? key}) : super(key: key);
+class SignUpsrceen extends StatelessWidget {
+   SignUpsrceen ({Key? key}) : super(key: key);
   @override
-  State<SignUpsrceen> createState() => _SignUpscrState();
-}
 
-void goTologIn(BuildContext ctx) {
-  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-    return Mainpage();
-  }));
-}
-
-void tohome(BuildContext ctx) {
-  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-    return Mainpage();
-  }));
-}
 
 final TextEditingController first_name = TextEditingController();
 final TextEditingController last_name = TextEditingController();
 final TextEditingController username = TextEditingController();
 final TextEditingController password = TextEditingController();
+final SignUpController _signUpController = SignUpController();
 
-// ignore: camel_case_types
-class _SignUpscrState extends State<SignUpsrceen> {
+
+
   GlobalKey<FormState> formstate = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -247,23 +233,15 @@ class _SignUpscrState extends State<SignUpsrceen> {
                           borderRadius: BorderRadius.circular(150),
                         ),
                         child: ElevatedButton(
-                          onPressed: () async {
+                          onPressed: () {
                             if (formstate.currentState!.validate()) {
-                              var result = await Auth.SignUp(first_name.text,
-                                  last_name.text, username.text, password.text);
-                              if (result == true) {
-                                const snackBar = SnackBar(
-                                  content: Text("Signed Up successfully!"),
-                                );
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                              } else {
-                                const snackBar = SnackBar(
-                                  content: Text("This account already exists!"),
-                                );
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                              }
+                              UserModel userModel = UserModel(
+                                firstName: first_name.text,
+                                lastName: last_name.text,
+                                username: username.text,
+                                password: password.text,
+                              );
+                              _signUpController.signUp(context, userModel);
                             } else {
                               const snackBar = SnackBar(
                                 content: Text("Form isn't valid!"),
@@ -271,7 +249,6 @@ class _SignUpscrState extends State<SignUpsrceen> {
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(snackBar);
                             }
-                            tohome(context);
                           },
                           child: const Text(
                             "Create an account",
@@ -356,9 +333,7 @@ class _SignUpscrState extends State<SignUpsrceen> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 11, vertical: 18),
                           minWidth: 20,
-                          onPressed: () {
-                            goTologIn(context);
-                          },
+                          onPressed: () {},
                           child: const Text(
                             "Sign in",
                             style: TextStyle(

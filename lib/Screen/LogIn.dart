@@ -1,35 +1,13 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/Auth.dart';
-import 'package:flutter_tickets_booking_agency/navigationbar/Mainpage.dart';
-import 'package:flutter_tickets_booking_agency/secreen/SignUp.dart';
+import 'package:flutter_tickets_booking_agency/Screen/login_controller.dart';
+import 'package:flutter_tickets_booking_agency/Screen/user_model.dart';
 
-class LogInSrceen extends StatefulWidget {
-  LogInSrceen({Key? key}) : super(key: key);
+class LogInScreen extends StatelessWidget {
   @override
+  final TextEditingController username = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final LoginController _loginController = LoginController();
 
-  // ignore: override_on_non_overriding_member
-
-  State<LogInSrceen> createState() => _LogInScrState();
-}
-
-void tohome(BuildContext ctx) {
-  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-    return Mainpage();
-  }));
-}
-
-void goTosignUp(BuildContext ctx) {
-  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-    return SignUpsrceen();
-  }));
-}
-
-final TextEditingController username = TextEditingController();
-final TextEditingController password = TextEditingController();
-
-class _LogInScrState extends State<LogInSrceen> {
   GlobalKey<FormState> formstate = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -179,33 +157,22 @@ class _LogInScrState extends State<LogInSrceen> {
                               borderRadius: BorderRadius.circular(150),
                             ),
                             child: MaterialButton(
-                              onPressed: () async {
-                                if (formstate.currentState!.validate()) {
-                                  var result = await Auth.LogIN(
-                                      username.text, password.text);
-                                  if (result == true) {
-                                    const snackBar = SnackBar(
-                                      content: Text("Signed in  successfully!"),
-                                    );
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(snackBar);
-                                  } else {
-                                    const snackBar = SnackBar(
-                                      content:
-                                          Text("Error something isn't valid!"),
-                                    );
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(snackBar);
-                                  }
-                                } else {
-                                  const snackBar = SnackBar(
-                                    content: Text("Form isn't valid!"),
-                                  );
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
-                                }
-                                tohome(context);
-                              },
+                              onPressed: () {
+                                 if (formstate.currentState!.validate()) {
+                              User user = User(
+                              
+                                username: username.text,
+                                password: password.text,
+                              );
+                              _loginController.signIn(context,user);
+                            } else {
+                              const snackBar = SnackBar(
+                                content: Text("Form isn't valid!"),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            }
+                          },
                               child: const Text(
                                 "Sign in",
                                 textAlign: TextAlign.right,
@@ -287,9 +254,7 @@ class _LogInScrState extends State<LogInSrceen> {
                               borderRadius: BorderRadius.circular(150),
                             ),
                             child: MaterialButton(
-                              onPressed: () {
-                                tohome(context);
-                              },
+                              onPressed: () {},
                               child: const Text(
                                 "Sign in as a guest",
                                 textAlign: TextAlign.right,
@@ -315,9 +280,7 @@ class _LogInScrState extends State<LogInSrceen> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 11, vertical: 18),
                               minWidth: 20,
-                              onPressed: () {
-                                goTosignUp(context);
-                              },
+                              onPressed: () {},
                               child: const Text(
                                 "Register",
                                 style: TextStyle(

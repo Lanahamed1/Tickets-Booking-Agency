@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/appstyle.dart';
-import 'package:flutter_tickets_booking_agency/flights_search/mainesearch.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
 
-  void tosearsh(BuildContext ctx) {
-    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-      return Mainesearch();
-    }));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color(0XFFF4F7FA),
         body: SafeArea(
             child: ListView(children: [
           Column(children: [
@@ -59,9 +52,7 @@ class Homepage extends StatelessWidget {
                                   MaterialButton(
                                     //color: Color.fromARGB(255, 131, 148, 173),
                                     height: 50,
-                                    onPressed: () {
-                                      tosearsh(context);
-                                    },
+                                    onPressed: () {},
                                     child: const Icon(
                                       Icons.flight_takeoff_outlined,
                                       color: Color.fromARGB(255, 2, 146, 219),
@@ -117,23 +108,17 @@ class Homepage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: 150,
+                      width: 295,
                     ),
                     const Icon(Icons.arrow_forward_ios, color: Colors.black),
                   ],
                 ),
               ),
-              Text(
-                "View all",
-                style: Styles.textStyle.copyWith(color: Styles.primaryColor),
-              ),
               const SizedBox(height: (8)),
               const SingleChildScrollView(
                 padding: EdgeInsets.only(left: 16),
                 scrollDirection: Axis.horizontal,
-                child: Row(children: [
-                  //ticketList.map((e) => TicketView(tickets: e)).toList(),
-                ]),
+                child: Row(children: []),
               ),
               const SizedBox(height: (15)),
               SingleChildScrollView(

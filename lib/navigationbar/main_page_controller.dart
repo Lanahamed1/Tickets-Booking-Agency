@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/flights_search/mainesearch.dart';
-import 'Homepage.dart';
-import 'explorepage.dart';
-import 'myflightspage.dart';
-import 'account_page.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/Profile.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/booking.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/explorepage.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/homepage.dart';
+import 'package:flutter_tickets_booking_agency/navigationbar/offer_page.dart';
+
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'offer_page.dart';
 
 class Mainpage extends StatefulWidget {
   const Mainpage({super.key});
@@ -13,18 +13,12 @@ class Mainpage extends StatefulWidget {
   State<Mainpage> createState() => _Mainpage();
 }
 
-
-
-
-
-
-
 class _Mainpage extends State<Mainpage> {
   List pages = [
     const Homepage(),
     const explorepage(),
-    const myflightspage(),
-    const account_page(),
+    const Mybooking(),
+    const Profile(),
     const Offer_page()
   ];
   int currentIndex = 0;

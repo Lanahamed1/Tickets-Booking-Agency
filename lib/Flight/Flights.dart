@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/Auth.dart';
-import 'package:flutter_tickets_booking_agency/Booking/flight_card.dart';
-import 'package:flutter_tickets_booking_agency/booking/Booking.dart';
-import 'package:flutter_tickets_booking_agency/flights_search/mainesearch.dart';
+import 'package:flutter_tickets_booking_agency/Flight/flight_card.dart';
+import 'package:get/get.dart';
 
 class Flights extends StatefulWidget {
-  final List<Flight> flights;
-  final String selectItem;
-
-  Flights({super.key, required this.flights, required this.selectItem});
+ 
+  Flights({super.key});
 
   @override
   State<Flights> createState() => _FlightsState();
+ final flight = Get.arguments.flights ;
+
 }
 
 class _FlightsState extends State<Flights> {
@@ -38,16 +36,16 @@ class _FlightsState extends State<Flights> {
             child: ListView.builder(
               itemBuilder: (ctx, index) {
                 return FlightCard(
-                  id: widget.flights[index].id,
-                  airline: widget.flights[index].airline,
-                  departureTime: widget.flights[index].departureDate,
-                  departure: widget.flights[index].departure,
-                  destination: widget.flights[index].destination,
-                  price: widget.flights[index].price,
-                  duration: widget.flights[index].duration,
+                  id: widget.flight.id,
+                  airline: widget.flight.airline,
+                  departureTime: widget.flight.departureDate,
+                  departure: widget.flight.departure,
+                  destination: widget.flight.destination,
+                  price: widget.flight.price,
+                  duration: widget.flight.duration,
                 );
               },
-              itemCount: widget.flights.length,
+              itemCount: widget.flight.length,
             )));
   }
 }
