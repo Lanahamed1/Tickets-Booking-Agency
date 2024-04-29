@@ -12,9 +12,12 @@ class Mainesearch extends StatefulWidget {
   State<Mainesearch> createState() => _Mainesearch();
 }
 
-void toflights(BuildContext ctx) {
+void toflights(BuildContext ctx, List<Flight> flightList, selectitem) {
   Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-    return Flights();
+    return Flights(
+      flights: flightList,
+      selectItem: selectitem,
+    );
   }));
 }
 
@@ -499,17 +502,9 @@ class _Mainesearch extends State<Mainesearch> {
                         child: MaterialButton(
                             onPressed: () async {
                               var flights = await Flight.fetchFlight(
-                                  "Damascus", "Damascus");
+                                  'Damascus', 'Damascus');
 
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Flights(),
-                                  settings: RouteSettings(arguments: flights),
-                                ),
-                              );
-
-                              toflights(context);
+                              toflights(context, flights, selectitem);
                             },
                             child: Text("Search Flights",
                                 textAlign: TextAlign.right,
@@ -912,20 +907,12 @@ class _Mainesearch extends State<Mainesearch> {
                         borderRadius: BorderRadius.circular(150),
                       ),
                       child: MaterialButton(
-                          onPressed: () {
-                            () async {
-                              var flights = await Flight.fetchFlight(
-                                  'Damascus', 'Damascus');
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Flights(),
-                                  settings: RouteSettings(arguments: flights),
-                                ),
-                              );
-                            };
+                          onPressed: () async {
+                            print("button pressed");
+                            var flights = await Flight.fetchFlight(
+                                'Damascus', 'Damascus');
 
-                            toflights(context);
+                            toflights(context, flights, selectitem);
                           },
                           child: Text("Search Flights",
                               textAlign: TextAlign.right,

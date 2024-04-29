@@ -1,40 +1,41 @@
 // ignore_for_file: unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/Auth.dart';
 import 'package:flutter_tickets_booking_agency/Booking/Booking.dart';
-import 'package:flutter_tickets_booking_agency/Booking/Flights.dart';
 
 class FlightCard extends StatelessWidget {
   final int id;
-  final String price;
+  final double price;
   final String destination;
   final String departure;
   final DateTime departureTime;
-  final String airplane;
-  final DateTime duration;
- // final String notes;
+  final String airline;
+  final String duration;
+  // final String notes;
 
-    FlightCard({
-     required this.id,
-    required this.price,
-    required this.departureTime,
-    required this.destination,
-    required this.departure,
-    required this.duration,
-    required this.airplane,
-   // required this.notes,
-  });
-  void selectFlight(BuildContext ctx) {
+  FlightCard(
+      {required this.id,
+      required this.price,
+      required this.departureTime,
+      required this.destination,
+      required this.departure,
+      required this.duration,
+      required this.airline
+      // required this.notes,
+      });
+  void selectFlight(BuildContext ctx, id) {
     Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
-      return Booking();
+      return Booking(id: id);
     }));
   }
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => selectFlight(context),
+    return GestureDetector(
+      onDoubleTap: () {
+        print("this" + "$id");
+        selectFlight(context, id);
+      },
       child: Card(
           margin: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
           child: Stack(
@@ -62,7 +63,7 @@ class FlightCard extends StatelessWidget {
                         children: <Widget>[
                           Row(children: <Widget>[
                             Text(
-                              airplane,
+                              airline,
                               style: const TextStyle(
                                   color: Color(0xFF1765FC),
                                   fontSize: 18,
@@ -88,10 +89,10 @@ class FlightCard extends StatelessWidget {
                             child: const Row(
                               children: <Widget>[
                                 Icon(Icons.blur_on, color: Color(0xFF1765FC)),
-                                Text('- - - - - - - - - - - - - - - - - '),
+                                Text('- - - - - - - - -  '),
                                 Icon(Icons.airplane_ticket_outlined,
                                     color: Color(0xFF1765FC)),
-                                Text('- - - - - - - - - - - - - - - - - '),
+                                Text('- - - - - - - - - -'),
                                 Icon(Icons.blur_on, color: Color(0xFF1765FC)),
                               ],
                             ),

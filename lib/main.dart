@@ -7,6 +7,7 @@ import 'package:flutter_tickets_booking_agency/flights_search/mainesearch.dart';
 import 'package:flutter_tickets_booking_agency/navigationbar/Homepage.dart';
 import 'package:flutter_tickets_booking_agency/navigationbar/Mainpage.dart';
 import 'package:flutter_tickets_booking_agency/secreen/SignUp.dart';
+import 'package:flutter_tickets_booking_agency/secreen/welcome_page.dart';
 // void main() {
 // runApp(MyApp());
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Tickets booking agency',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: Mainesearch(),
+      home:Welcome(),
     );
   }
 }

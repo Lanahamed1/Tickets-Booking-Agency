@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/appstyle.dart';
 import 'package:flutter_tickets_booking_agency/secreen/LogIn.dart';
 
-class Start extends StatefulWidget {
-  const Start({Key? key}) : super(key: key);
+class Welcome extends StatefulWidget {
+  const Welcome({Key? key}) : super(key: key);
 
   @override
-  State<Start> createState() => _StartState();
+  State<Welcome> createState() => _WelcomeState();
 }
 void slectContinue(BuildContext ctx) {
     Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
@@ -14,7 +14,7 @@ void slectContinue(BuildContext ctx) {
     }));
   }
 
-class _StartState extends State<Start> {
+class _WelcomeState extends State<Welcome> {
   List<Color> cc = [
     const Color.fromARGB(255, 60, 160, 209),
     const Color.fromARGB(255, 105, 202, 250),

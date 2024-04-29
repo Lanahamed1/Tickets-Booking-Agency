@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Auth.dart';
 import 'package:flutter_tickets_booking_agency/Booking/flight_card.dart';
+import 'package:flutter_tickets_booking_agency/booking/Booking.dart';
 import 'package:flutter_tickets_booking_agency/flights_search/mainesearch.dart';
 
 class Flights extends StatefulWidget {
-  const Flights({super.key});
+  final List<Flight> flights;
+  final String selectItem;
+
+  Flights({super.key, required this.flights, required this.selectItem});
 
   @override
   State<Flights> createState() => _FlightsState();
@@ -13,12 +17,9 @@ class Flights extends StatefulWidget {
 class _FlightsState extends State<Flights> {
   @override
   Widget build(BuildContext context) {
-    final flights = ModalRoute.of(context)!.settings.arguments as List<Flight>;
-
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-
           title: SizedBox(
             child: Container(
                 margin: const EdgeInsets.only(top: 3),
@@ -37,16 +38,16 @@ class _FlightsState extends State<Flights> {
             child: ListView.builder(
               itemBuilder: (ctx, index) {
                 return FlightCard(
-                  id: flights[index].id,
-                  airplane: flights[index].destination,
-                  departureTime: flights[index].departureDate,
-                  departure: flights[index].departure,
-                  destination: flights[index].destination,
-                  price: flights[index].destination,
-                  duration: flights[index].returndate,
+                  id: widget.flights[index].id,
+                  airline: widget.flights[index].airline,
+                  departureTime: widget.flights[index].departureDate,
+                  departure: widget.flights[index].departure,
+                  destination: widget.flights[index].destination,
+                  price: widget.flights[index].price,
+                  duration: widget.flights[index].duration,
                 );
               },
-              itemCount: flights.length,
+              itemCount: widget.flights.length,
             )));
   }
 }
