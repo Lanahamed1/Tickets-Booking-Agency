@@ -1,5 +1,8 @@
+//import 'package:app/controller/main_page_controller.dart';
+//import 'package:app/view/navigationbar/Mainpage.dart';
 import 'package:app/view/screen/appstyle.dart';
 import 'package:flutter/material.dart';
+//import 'package:get/get.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -50,7 +53,6 @@ class Homepage extends StatelessWidget {
                               child: Column(
                                 children: [
                                   MaterialButton(
-                                    //color: Color.fromARGB(255, 131, 148, 173),
                                     height: 50,
                                     onPressed: () {},
                                     child: const Icon(
@@ -103,7 +105,7 @@ class Homepage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 25),
                       child: Text(
-                        "Explore",
+                        "Recomended",
                         style: Styles.headLineStyle2,
                       ),
                     ),

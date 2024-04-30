@@ -1,4 +1,5 @@
 import 'package:app/controller/login_controller.dart';
+import 'package:app/controller/main_page_controller.dart';
 import 'package:app/model/user_model.dart';
 import 'package:app/view/screen/appstyle.dart';
 import 'package:app/view/screen/singup.dart';
@@ -141,7 +142,6 @@ class Login extends StatelessWidget {
                                       password: password.text,
                                     );
                                     _loginController.signIn(context, user);
-                                    Get.to(Signup());
                                   } else {
                                     const snackBar = SnackBar(
                                       content: Text("Form isn't valid!"),
@@ -216,7 +216,9 @@ class Login extends StatelessWidget {
                               borderRadius: BorderRadius.circular(150),
                             ),
                             child: MaterialButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(const Mainpage());
+                              },
                               child: Text("Sign in as a guest",
                                   textAlign: TextAlign.right,
                                   style: Styles.headLineStyle10),

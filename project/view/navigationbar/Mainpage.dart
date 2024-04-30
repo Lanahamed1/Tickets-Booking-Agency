@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import '../../view/navigationbar/Homepage.dart';
 import 'explorepage.dart';
-import 'booking.dart';
+import 'my_booking.dart';
 import 'Profile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'offer_page.dart';
@@ -18,7 +18,7 @@ class _Mainpage extends State<Mainpage> {
     const Homepage(),
     const explorepage(),
     const Offer_page(),
-    const Mybooking(),
+    BookingView(),
     const Profile(),
   ];
   int currentIndex = 0;

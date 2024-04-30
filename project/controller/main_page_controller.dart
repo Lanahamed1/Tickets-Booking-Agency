@@ -1,5 +1,5 @@
 import 'package:app/view/navigationbar/Profile.dart';
-import 'package:app/view/navigationbar/booking.dart';
+import 'package:app/view/navigationbar/my_booking.dart';
 import 'package:app/view/navigationbar/explorepage.dart';
 import 'package:app/view/navigationbar/homepage.dart';
 import 'package:app/view/navigationbar/offer_page.dart';
@@ -17,7 +17,7 @@ class _Mainpage extends State<Mainpage> {
   List pages = [
     const Homepage(),
     const explorepage(),
-    const Mybooking(),
+    BookingView(),
     const Profile(),
     const Offer_page()
   ];

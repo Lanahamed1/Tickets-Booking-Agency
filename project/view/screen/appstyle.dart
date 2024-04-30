@@ -10,7 +10,7 @@ class Styles {
   static Color textColor4 = const Color(0XFF2680FF);
   static Color textColor5 = Colors.black87;
   static Color textColor6 = const Color.fromARGB(255, 205, 50, 50);
-
+  static Color textColor7 = Colors.green;
   // static Color bgColor = const Color(0XFFF4F7FA);
 
   static TextStyle textStyle =
@@ -81,8 +81,15 @@ class Styles {
     color: textColor5,
   );
   static TextStyle headLineStyle21 = const TextStyle(
-    color: Color(0xFF1765FC),
-    fontSize: 18,
+    color: Color.fromARGB(255, 2, 146, 219),
+    fontSize: 20,
+    fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w900,
   );
+  static TextStyle headLineStyle22 =
+      TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: textColor7);
+  static TextStyle headLineStyle23 =
+      TextStyle(fontSize: 20, color: textColor5, fontWeight: FontWeight.w600);
+  static TextStyle headLineStyle24 =
+      TextStyle(fontSize: 14, color: textColor3, fontWeight: FontWeight.w500);
 }

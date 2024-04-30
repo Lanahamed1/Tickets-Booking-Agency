@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:app/model/search_flight_model.dart';
 import 'package:get/get.dart';
 import 'package:app/controller/mainsearch_controller.dart';
 import 'package:app/view/screen/appstyle.dart';

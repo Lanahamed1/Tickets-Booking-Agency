@@ -1,10 +1,10 @@
-import 'package:app/view/navigationbar/homepage.dart';
+import 'package:app/view/navigationbar/Mainpage.dart';
 import 'package:app/view/screen/appstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Start extends StatefulWidget {
-  const Start({Key? key}) : super(key: key);
+  const Start({super.key});
 
   @override
   State<Start> createState() => _StartState();
@@ -12,8 +12,8 @@ class Start extends StatefulWidget {
 
 class _StartState extends State<Start> {
   List<Color> cc = [
-    Color.fromARGB(255, 6, 139, 255),
-    Color.fromARGB(255, 66, 192, 255),
+    const Color.fromARGB(255, 6, 139, 255),
+    const Color.fromARGB(255, 66, 192, 255),
   ];
   // double screenhight = MediaQuery.of(context).size.height;
   // double screenwidth= MediaQuery.of(context).size.width;
@@ -58,7 +58,7 @@ class _StartState extends State<Start> {
                 ),
                 MaterialButton(
                   onPressed: () {
-                    Get.to(Homepage());
+                    Get.to(const Mainpage());
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

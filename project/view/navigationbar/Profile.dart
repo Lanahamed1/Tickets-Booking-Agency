@@ -36,8 +36,8 @@ class _ProfileScrState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading:
-              IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+          //leading:
+          //   IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
           centerTitle: true,
           backgroundColor: const Color(0XFFE1EDFF),
           elevation: 0.0,
@@ -47,7 +47,7 @@ class _ProfileScrState extends State<Profile> {
                 child: const Text(
                   "Profile",
                   style: TextStyle(
-                      color: Color(0xFF1765FC),
+                      color: Color.fromARGB(255, 2, 146, 219),
                       fontSize: 25,
                       fontWeight: FontWeight.w900),
                 )),
@@ -83,13 +83,13 @@ class _ProfileScrState extends State<Profile> {
                 height: 10,
               ),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 5),
-                height: 20,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1765FC),
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(150),
                 ),
+                margin: const EdgeInsets.symmetric(horizontal: 5),
                 child: MaterialButton(
+                    color: const Color.fromARGB(255, 2, 146, 219),
+                    minWidth: 20,
                     onPressed: () {
                       if (isEditMode) {
                         updateUserProfile(
@@ -123,56 +123,36 @@ class _ProfileScrState extends State<Profile> {
                     fontSize: 18),
               ),
               const SizedBox(
-                height: 25,
-              ),
-              const SizedBox(
-                height: 9,
+                height: 34,
               ),
               buildTextField("First Name", firstNameController),
-              const SizedBox(height: 15),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 30),
+
               buildTextField("Last Name", lastNameController),
-              const SizedBox(height: 15),
-              const SizedBox(
-                height: 15,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 30),
+
               buildTextField("Email", emailController),
-              const SizedBox(height: 15),
-              const SizedBox(
-                height: 15,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 30),
+
               buildTextField(
                 "Age",
                 ageController,
               ),
-              const SizedBox(height: 15),
-              const SizedBox(
-                height: 15,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 30),
+
               buildTextField(
                 "Address",
                 addressController,
               ),
               const SizedBox(
-                height: 15,
+                height: 30,
               ),
-              const SizedBox(height: 15),
+
               buildTextField(
                 "Gender",
                 genderController,
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
 
               // ListTile(
               //   leading: Container(
@@ -189,16 +169,19 @@ class _ProfileScrState extends State<Profile> {
               //   ),
               //   subtitle: Text("ViaWise"),
               // ),
-              const SizedBox(
-                height: 150,
-              ),
+
               Container(
+                  padding: const EdgeInsets.only(right: 20),
+                  alignment: Alignment.bottomRight,
                   width: 350,
                   height: 45,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
+                    minWidth: 100,
+                    height: 40,
+                    color: const Color.fromARGB(255, 2, 146, 219),
                     onPressed: () {},
                     child: const Text(
                       "Log out",
@@ -207,10 +190,11 @@ class _ProfileScrState extends State<Profile> {
                           letterSpacing: 0.5,
                           wordSpacing: 1,
                           fontSize: 17,
-                          color: Color(0xFF1765FC),
+                          color: Color.fromARGB(255, 255, 255, 255),
                           fontWeight: FontWeight.bold),
                     ),
                   )),
+              const SizedBox(height: 30),
             ])));
   }
 
