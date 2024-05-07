@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-Color primary = const Color.fromARGB(255, 2, 146, 219);
+//Color primary = const Color.fromARGB(255, 2, 146, 219);
 
 class Styles {
-  static Color primaryColor = primary;
+  // static Color primaryColor = primary;
   static Color textColor = const Color(0xFF3b3b3b);
   static Color textColor2 = Colors.grey;
   static Color textColor3 = Colors.white;
   static Color textColor4 = const Color(0XFF2680FF);
   static Color textColor5 = Colors.black87;
-
-  static Color bgColor = const Color(0XFFF4F7FA);
+  static Color textColor6 = const Color.fromARGB(255, 205, 50, 50);
+  static Color textColor7 = Colors.green;
+  // static Color bgColor = const Color(0XFFF4F7FA);
 
   static TextStyle textStyle =
       TextStyle(fontSize: 16, color: textColor, fontWeight: FontWeight.w500);
@@ -64,4 +65,43 @@ class Styles {
       fontWeight: FontWeight.w900);
   static TextStyle headLineStyle17 =
       TextStyle(color: textColor5, fontSize: 14, fontWeight: FontWeight.w400);
+  static TextStyle headLineStyle18 = TextStyle(
+      letterSpacing: 1,
+      fontSize: 24,
+      color: textColor3,
+      fontWeight: FontWeight.w900);
+  static TextStyle headLineStyle19 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: textColor6,
+  );
+  static TextStyle headLineStyle20 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: textColor5,
+  );
+  static TextStyle headLineStyle21 = const TextStyle(
+    color: Color.fromARGB(255, 2, 146, 219),
+    fontSize: 20,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w900,
+  );
+  static TextStyle headLineStyle22 =
+      TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: textColor7);
+  static TextStyle headLineStyle23 =
+      TextStyle(fontSize: 20, color: textColor5, fontWeight: FontWeight.w600);
+  static TextStyle headLineStyle24 =
+      TextStyle(fontSize: 14, color: textColor3, fontWeight: FontWeight.w500);
+  static TextStyle headLineStyle25 =
+      TextStyle(fontSize: 16, color: textColor5, fontWeight: FontWeight.w400);
+  static TextStyle headLineStyle26 = const TextStyle(
+      fontSize: 15,
+      color: Color.fromARGB(255, 2, 146, 219),
+      fontWeight: FontWeight.w500);
+  static TextStyle headLineStyle27 =
+      TextStyle(fontSize: 17, color: textColor5, fontWeight: FontWeight.w600);
+  static TextStyle headLineStyle28 =
+      TextStyle(fontSize: 14, color: textColor5, fontWeight: FontWeight.w700);
+  static TextStyle headLineStyle29 =
+      TextStyle(fontSize: 14, color: textColor2, fontWeight: FontWeight.w400);
 }

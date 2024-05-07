@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Navigationbar/Main_page.dart';
 import 'package:flutter_tickets_booking_agency/Screen/Auth.dart';
@@ -19,14 +20,11 @@ class SignUpController {
         ),
       );
       // Navigate to the main page on successful sign up
-
-      () async {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) {
-            return Mainpage();
-          }),
-        );
-      };
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) {
+          return  Mainpage();
+        }),
+      );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

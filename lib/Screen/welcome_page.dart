@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tickets_booking_agency/Screen/LogIn.dart';
 import 'package:flutter_tickets_booking_agency/appstyle.dart';
+import 'package:get/get.dart';
 
-class Welcome extends StatelessWidget {
+class Start extends StatefulWidget {
+  const Start({super.key});
+
+  @override
+  State<Start> createState() => _StartState();
+}
+
+class _StartState extends State<Start> {
   List<Color> cc = [
-    const Color.fromARGB(255, 60, 160, 209),
-    const Color.fromARGB(255, 105, 202, 250),
+    const Color.fromARGB(255, 6, 139, 255),
+    const Color.fromARGB(255, 66, 192, 255),
   ];
-
   // double screenhight = MediaQuery.of(context).size.height;
+  // double screenwidth= MediaQuery.of(context).size.width;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,15 +50,16 @@ class Welcome extends StatelessWidget {
                 //),
 
                 Text(
-                  textAlign: TextAlign.center,
-                  "ViaWise",
-                  // style: Styles.headLineStyle18
-                ),
+                    textAlign: TextAlign.center,
+                    "ViaWise",
+                    style: Styles.headLineStyle18),
                 const SizedBox(
                   height: 280,
                 ),
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(LogIn());
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

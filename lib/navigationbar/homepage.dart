@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tickets_booking_agency/Flight_search/mainesearch.dart';
 import 'package:flutter_tickets_booking_agency/Navigationbar/controller.dart';
 import 'package:flutter_tickets_booking_agency/Navigationbar/recmmended.dart';
 import 'package:flutter_tickets_booking_agency/appstyle.dart';
+import 'package:flutter_tickets_booking_agency/hotel/hotels.dart';
+import 'package:get/get.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -45,7 +48,7 @@ class Homepage extends StatelessWidget {
                       borderRadius:
                           BorderRadius.vertical(bottom: Radius.circular(80))),
                   child: Image.asset(
-                    "assets/images/photo.jpg",
+                    "assets/images/christopher-jolly-HQ8G4WAQfsg-unsplash.jpg",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -76,7 +79,9 @@ class Homepage extends StatelessWidget {
                           children: [
                             MaterialButton(
                               height: 50,
-                              onPressed: () {},
+                              onPressed: () {
+                                 Get.to(() => FlightSearch());
+                              },
                               child: const Icon(
                                 Icons.flight_takeoff_outlined,
                                 color: Color.fromARGB(255, 2, 146, 219),
@@ -105,7 +110,9 @@ class Homepage extends StatelessWidget {
                           children: [
                             MaterialButton(
                               height: 50,
-                              onPressed: () {},
+                              onPressed: () {
+                                 Get.to(() => HotelsView());
+                              },
                               child: const Icon(
                                 Icons.bed,
                                 color: Color.fromARGB(255, 2, 146, 219),
