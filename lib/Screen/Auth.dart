@@ -18,8 +18,8 @@ class Auth {
       },
     );
     if (response.statusCode == 201) {
-       final Map<String, dynamic> responseData = json.decode(response.body);
-      String token = responseData['token']; // Assuming the token is in the response body
+      final Map<String, dynamic> responseData = json.decode(response.body);
+      String token = responseData['token'];
       await TokenManager.saveToken(token);
       print('$token');
       return true;
@@ -39,8 +39,11 @@ class Auth {
       },
     );
     if (response.statusCode == 200) {
-      
-      
+      String token = response.body;
+
+      await TokenManager.saveToken(token);
+      print('this token $token');
+
       return true;
     } else {
       return false;
@@ -49,14 +52,14 @@ class Auth {
 }
 
 Future<void> updateUserProfile(
-    String Token,
-    String firstNameController,
-    String lastNameController,
-    String emailController,
-    String ageController,
-    String addressController,
-    String genderController) async {
-  String url = 'http://127.0.0.1:8000/account/profile/=Auth$Token';
+  String firstNameController,
+  String lastNameController,
+  String emailController,
+  String ageController,
+  String addressController,
+  String genderController,
+) async {
+  String url = 'https://viawise.onrender.com/account/profile/';
 
   Map<String, dynamic> userData = {
     'firstName': firstNameController,
@@ -68,19 +71,25 @@ Future<void> updateUserProfile(
   };
 
   try {
-    final response = await http.post(
-      Uri.parse(url),
+    // Retrieve the token using TokenManager
+    String? token = await TokenManager.getToken();
 
-      //  headers: {
-      //   'Authorization': 'Bearer $token', // Include the token in the headers
-      // },
-      body: userData,
-    );
+    if (token != null) {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {
+          'Authorization': 'Bearer $token', // Include the token in the headers
+        },
+        body: userData,
+      );
 
-    if (response.statusCode == 200) {
-      print('Profile updated successfully');
+      if (response.statusCode == 200) {
+        print('Profile updated successfully');
+      } else {
+        print('Failed to update profile: ${response.statusCode}');
+      }
     } else {
-      print('Failed to update profile: ${response.statusCode}');
+      print('Token not found. User is not authenticated.');
     }
   } catch (error) {
     print('Error updating profile: $error');

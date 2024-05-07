@@ -93,7 +93,6 @@ class _ProfileScrState extends State<Profile> {
                     onPressed: () {
                       if (isEditMode) {
                         updateUserProfile(
-                            Token = '',
                             firstNameController.text,
                             lastNameController.text,
                             emailController.text,
