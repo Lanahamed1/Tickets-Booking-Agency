@@ -14,9 +14,11 @@ class LoginController {
         ),
       );
       // Navigate to the main page on successful sign in
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const Mainpage()),
-      );
+      () async {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => Mainpage()),
+        );
+      };
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

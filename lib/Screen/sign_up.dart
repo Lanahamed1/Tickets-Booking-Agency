@@ -18,31 +18,31 @@ final SignUpController _signUpController = SignUpController();
 
   GlobalKey<FormState> formstate = GlobalKey();
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: const Color(0XFFE1EDFF),
-          elevation: 0.0,
-          title: SizedBox(
-            child: Container(
-                alignment: Alignment.center,
-                margin: const EdgeInsets.only(left: 7, top: 3),
-                child: const Text(
-                  "Create an account",
-                  style: TextStyle(
-                      color: Color(0XFF2680FF),
-                      fontSize: 25,
-                      fontWeight: FontWeight.w900),
-                )),
+    Widget build(BuildContext context) {
+      return Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            backgroundColor: const Color(0XFFE1EDFF),
+            elevation: 0.0,
+            title: SizedBox(
+              child: Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.only(left: 7, top: 3),
+                  child: const Text(
+                    "Create an account",
+                    style: TextStyle(
+                        color: Color(0XFF2680FF),
+                        fontSize: 25,
+                        fontWeight: FontWeight.w900),
+                  )),
+            ),
           ),
-        ),
-        body: Container(
-            color: const Color(0XFFE1EDFF),
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: ListView(children: [
-              const SizedBox(height: 0),
-              Container(
+          body: Container(
+              color: const Color(0XFFE1EDFF),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: ListView(children: [
+                const SizedBox(height: 0),
+                Container(
                   margin: const EdgeInsets.only(left: 5),
                   child: const Text(
                       "In your account you can save and manage  your\n bookings and flights",

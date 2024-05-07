@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 class Auth {
   static Future<bool> SignUp(String first_name, String last_name,
       String username, String password) async {
-    final url = Uri.parse("http://127.0.0.1:8000/account/register/");
+    final url = Uri.parse("https://viawise.onrender.com/account/register/");
     final response = await http.post(
       url,
       body: {
@@ -22,7 +22,7 @@ class Auth {
   }
 
   static Future<bool> LogIN(String username, String password) async {
-    final url = Uri.parse("http://127.0.0.1:8000/account/login/");
+    final url = Uri.parse("https://viawise.onrender.com/account/login/");
 
     final response = await http.post(
       url,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tickets_booking_agency/Navigationbar/homepage.dart';
 import 'package:flutter_tickets_booking_agency/navigationbar/Profile.dart';
 import 'package:flutter_tickets_booking_agency/navigationbar/booking.dart';
 import 'package:flutter_tickets_booking_agency/navigationbar/explorepage.dart';
-import 'package:flutter_tickets_booking_agency/navigationbar/homepage.dart';
 import 'package:flutter_tickets_booking_agency/navigationbar/offer_page.dart';
 
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -15,7 +15,7 @@ class Mainpage extends StatefulWidget {
 
 class _Mainpage extends State<Mainpage> {
   List pages = [
-    const Homepage(),
+   Homepage(),
     const explorepage(),
     const Mybooking(),
     const Profile(),

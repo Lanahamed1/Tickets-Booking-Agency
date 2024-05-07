@@ -19,11 +19,14 @@ class SignUpController {
         ),
       );
       // Navigate to the main page on successful sign up
-      Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) {
-          return const Mainpage();
-        }),
-      );
+
+      () async {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) {
+            return Mainpage();
+          }),
+        );
+      };
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

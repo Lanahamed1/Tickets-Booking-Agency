@@ -10,7 +10,7 @@
 analyzer:
   errors:
     file_names: ignore
-    non_constant_identifier_names: ignore ignore
+    non_constant_identifier_names: ignore ignore ignore
     unused_field: ignore
     use_function_type_syntax_for_parameters: ignore
 include: package:flutter_lints/flutter.yaml

@@ -1,6 +1,6 @@
 //import 'package:app/appstyle.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/navigationbar/homepage.dart';
+import 'package:flutter_tickets_booking_agency/Navigationbar/homepage.dart';
 import 'explorepage.dart';
 import 'booking.dart';
 import 'Profile.dart';
@@ -8,14 +8,14 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'offer_page.dart';
 
 class Mainpage extends StatefulWidget {
-  const Mainpage({super.key});
+  Mainpage({super.key});
   @override
   State<Mainpage> createState() => _Mainpage();
 }
 
 class _Mainpage extends State<Mainpage> {
   List pages = [
-    const Homepage(),
+          Homepage(),
     const explorepage(),
     const Offer_page(),
     const Mybooking(),

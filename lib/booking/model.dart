@@ -1,4 +1,5 @@
 
+
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
@@ -9,16 +10,13 @@ class MyBooking {
   final String first_name;
   final String last_name;
   final String Passport_number;
-  final String selectItem;
-  final String selectDate;
 
   MyBooking(
       {required this.id,
       required this.first_name,
       required this.Passport_number,
-      required this.selectItem,
       required this.last_name,
-      required this.selectDate});
+     });
   factory MyBooking.fromJson(Map<String, dynamic> json) {
     return switch (json) {
       {
@@ -26,16 +24,12 @@ class MyBooking {
         'first_name': String first_name,
         'last_name': String last_name,
         ' Passport_number': String Passport_number,
-        ' selectItem': String selectItem,
-        ' selectDate': String selectDate,
       } =>
         MyBooking(
             id: id,
             first_name: first_name,
             last_name: last_name,
-            Passport_number: Passport_number,
-            selectItem: selectItem,
-            selectDate: selectDate),
+            Passport_number: Passport_number,),
       _ => throw const FormatException('Failed to load album.'),
     };
   }
@@ -50,8 +44,6 @@ class MyBooking {
         'first_name': first_name,
         'last_name': last_name,
         ' Passport_number': Passport_number,
-        ' selectItem': selectItem,
-        ' selectDate': selectDate,
       }),
     );
 
@@ -59,7 +51,7 @@ class MyBooking {
       return MyBooking.fromJson(
           jsonDecode(response.body) as Map<String, dynamic>);
     } else {
-      throw Exception('Failed to create album.');
+      throw Exception('Failed to reservation.');
     }
   }
 }
