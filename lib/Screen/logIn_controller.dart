@@ -15,10 +15,11 @@ class LoginController {
         ),
       );
       // Navigate to the main page on successful sign in
+      await{
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) =>  Mainpage()),
-      );
-    } else {
+      )
+    };} else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Error: Invalid username or password!"),

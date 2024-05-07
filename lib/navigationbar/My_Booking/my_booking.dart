@@ -5,12 +5,12 @@ import 'package:flutter_tickets_booking_agency/Navigationbar/My_Booking/my_booki
 import 'package:flutter_tickets_booking_agency/appstyle.dart';
 import 'package:get/get.dart';
 
-class BookingView extends GetView<FlightController> {
+class Booking extends GetView<FlightController> {
   @override
   final FlightController controller =
       Get.put(FlightController(), permanent: true);
 
-  BookingView({super.key});
+  Booking({super.key});
 
   @override
   Widget build(BuildContext context) {

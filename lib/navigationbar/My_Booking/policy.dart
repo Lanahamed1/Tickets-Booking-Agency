@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Navigationbar/My_Booking/my_booking.dart';
 import 'package:flutter_tickets_booking_agency/Navigationbar/My_Booking/my_booking_controller.dart';
@@ -124,7 +123,7 @@ class Policy extends StatelessWidget {
                                             'Booking Canceled ',
                                             'This booking has already been Canceled.');
                                         Get.delete();
-                                        Get.to(() => BookingView());
+                                        Get.to(() => Booking());
                                       },
                                       child: Text('Yes',
                                           style: Styles.headLineStyle26),

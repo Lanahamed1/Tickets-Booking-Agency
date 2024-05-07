@@ -31,7 +31,7 @@ class LogIn extends StatelessWidget {
               ),
             )),
         body: Container(
-            color: const Color(0XFFE1EDFF),
+            color: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: ListView(children: [
               const SizedBox(height: 0),
@@ -234,7 +234,7 @@ class LogIn extends StatelessWidget {
                                   horizontal: 11, vertical: 18),
                               minWidth: 20,
                               onPressed: () {
-                                Get.to(Signup());
+                                Get.to(SignUp());
                               },
                               child: Text("Register",
                                   style: Styles.headLineStyle10),

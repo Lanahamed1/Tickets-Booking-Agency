@@ -269,7 +269,7 @@ class FlightSearch extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(
-                  'images/paypal.jpg',
+                  'assets/images/paypal.jpg',
                   height: 40,
                   width: 40,
                 ),

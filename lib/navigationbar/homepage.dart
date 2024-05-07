@@ -48,7 +48,7 @@ class Homepage extends StatelessWidget {
                       borderRadius:
                           BorderRadius.vertical(bottom: Radius.circular(80))),
                   child: Image.asset(
-                    "assets/images/christopher-jolly-HQ8G4WAQfsg-unsplash.jpg",
+                    "assets/images/airline.jpg",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -80,7 +80,7 @@ class Homepage extends StatelessWidget {
                             MaterialButton(
                               height: 50,
                               onPressed: () {
-                                 Get.to(() => FlightSearch());
+                                Get.to(() => FlightSearch());
                               },
                               child: const Icon(
                                 Icons.flight_takeoff_outlined,
@@ -111,7 +111,7 @@ class Homepage extends StatelessWidget {
                             MaterialButton(
                               height: 50,
                               onPressed: () {
-                                 Get.to(() => HotelsView());
+                                Get.to(() => HotelsView());
                               },
                               child: const Icon(
                                 Icons.bed,

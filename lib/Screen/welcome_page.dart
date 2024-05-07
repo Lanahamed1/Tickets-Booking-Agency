@@ -58,7 +58,7 @@ class _StartState extends State<Start> {
                 ),
                 MaterialButton(
                   onPressed: () {
-                    Get.to(LogIn());
+                    Get.to(() => LogIn());
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -20,12 +20,13 @@ class SignUpController {
         ),
       );
       // Navigate to the main page on successful sign up
+      await{
       Navigator.of(context).push(
         MaterialPageRoute(builder: (_) {
           return  Mainpage();
         }),
-      );
-    } else {
+      )
+    }; }else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: const Text("This account already exists!"),

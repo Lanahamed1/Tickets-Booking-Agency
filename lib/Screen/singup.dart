@@ -3,8 +3,8 @@ import 'package:flutter_tickets_booking_agency/Screen/sign_up_controller.dart';
 import 'package:flutter_tickets_booking_agency/Screen/user_model.dart';
 
 // ignore: must_be_immutable
-class Signup extends StatelessWidget {
-  Signup({super.key});
+class SignUp extends StatelessWidget {
+  SignUp({super.key});
 
   final TextEditingController first_name = TextEditingController();
   final TextEditingController last_name = TextEditingController();
@@ -34,7 +34,7 @@ class Signup extends StatelessWidget {
           ),
         ),
         body: Container(
-            color: const Color(0XFFE1EDFF),
+            color: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: ListView(children: [
               const SizedBox(height: 0),
