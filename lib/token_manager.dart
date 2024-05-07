@@ -15,3 +15,13 @@
      await prefs.remove('token');
    }
  }
+ Future<void> logOut() async {
+  try {
+    // Clear the token using TokenManager
+    await TokenManager.clearToken();
+    print('Logged out successfully');
+    // You can perform any other cleanup tasks here
+  } catch (error) {
+    print('Error logging out: $error');
+  }
+}

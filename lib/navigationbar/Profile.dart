@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Screen/Auth.dart';
+import 'package:flutter_tickets_booking_agency/token_manager.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -24,7 +25,6 @@ class Profile extends StatefulWidget {
 // ignore: camel_case_types
 class _ProfileScrState extends State<Profile> {
   bool isEditMode = false;
-  late String Token;
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -198,7 +198,9 @@ class _ProfileScrState extends State<Profile> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      logOut();
+                    },
                     child: const Text(
                       "Log out",
                       textAlign: TextAlign.start,
