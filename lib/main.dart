@@ -7,6 +7,12 @@ void main() {
   runApp(const MyApp());
 }
 
+// Future<void> main() async {
+//     WidgetsFlutterBinding.ensureInitialized();
+//    await Firebase.initializeApp();
+//    runApp(const MyApp());
+//  }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -20,8 +26,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Future<void> main() async {
-//    WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(const MyApp());
-// }
+// 
