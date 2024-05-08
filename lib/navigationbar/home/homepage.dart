@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Flight_search/mainesearch.dart';
-import 'package:flutter_tickets_booking_agency/Navigationbar/controller.dart';
-import 'package:flutter_tickets_booking_agency/Navigationbar/recmmended.dart';
+import 'package:flutter_tickets_booking_agency/Navigationbar/home/controller.dart';
+import 'package:flutter_tickets_booking_agency/Navigationbar/home/recmmended.dart';
 import 'package:flutter_tickets_booking_agency/appstyle.dart';
 import 'package:flutter_tickets_booking_agency/hotel/hotels.dart';
 import 'package:get/get.dart';

@@ -1,8 +1,8 @@
 //import 'package:app/appstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tickets_booking_agency/Navigationbar/My_Booking/my_booking.dart';
-import 'package:flutter_tickets_booking_agency/Navigationbar/explorepage.dart';
-import 'package:flutter_tickets_booking_agency/Navigationbar/homepage.dart';
+import 'package:flutter_tickets_booking_agency/Navigationbar/explore/explorepage.dart';
+import 'package:flutter_tickets_booking_agency/Navigationbar/home/homepage.dart';
 import 'package:flutter_tickets_booking_agency/Navigationbar/offer/offer_page.dart';
 import 'Profile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
