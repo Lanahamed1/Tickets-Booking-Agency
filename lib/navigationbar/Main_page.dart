@@ -42,10 +42,14 @@ class _Mainpage extends State<Mainpage> {
           duration: const Duration(milliseconds: 400),
           tabBackgroundColor: Colors.grey[300]!,
           color: Colors.grey,
-          selectedIndex: currentIndex,
           onTabChange: (value) {
             setState(() {
               currentIndex = value;
+              // Check if the "My Booking" tab is selected (index 3)
+              if (currentIndex == 3) {
+                // Call fetchBookedFlights method when "My Booking" tab is selected
+                flightController.fetchBookedFlights();
+              }
             });
           },
           tabs: const [

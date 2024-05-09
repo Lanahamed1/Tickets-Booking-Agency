@@ -14,7 +14,8 @@ class FlightController extends GetxController {
   }
 
   Future<List<Bookedflights>> _fetchBookedFlights() async {
-    String url = 'https://viawise.onrender.com/booking/my-booking';
+    String url = 'viawise.onrender.com/booking/my_booking/';
+    print('myyyyyyyyyyyyyyyyyyyyyyyyyyy');
 
     try {
       String? token = await TokenManager.getToken();
@@ -50,11 +51,11 @@ class FlightController extends GetxController {
         flights.assignAll(bookedFlights); // Update flights list
         return bookedFlights;
       } else {
-        throw Exception('Failed to load booked flights: ${response.statusCode}');
+        throw Exception(
+            'Failed to load booked flights  : ${response.statusCode}');
       }
     } catch (error) {
       throw Exception('Failed to load booked flights: $error');
     }
   }
 }
-
