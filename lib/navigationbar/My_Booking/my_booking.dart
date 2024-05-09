@@ -15,25 +15,30 @@ class Booking extends GetView<FlightController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0XFFE1EDFF),
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: const Color(0XFFE1EDFF),
-        title: Text(
-          'My Booking',
-          style: Styles.headLineStyle23,
+        // backgroundColor: const Color(0XFFE1EDFF),
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: const Color(0XFFE1EDFF),
+          title: Text(
+            'My Booking',
+            style: Styles.headLineStyle23,
+          ),
         ),
-      ),
-      body: Obx(
-        () => ListView.builder(
-          itemCount: controller.flights.length,
-          itemBuilder: (context, index) {
-            Bookedflights flight = controller.flights[index];
-            return BookingCard(flight: flight);
-          },
-        ),
-      ),
-    );
+        body: Obx(() {
+          if (controller.flights.isEmpty) {
+            return Center(child: Text('No bookings found.'));
+          } else {
+            return ListView.builder(
+              itemCount: controller.flights.length,
+              itemBuilder: (context, index) {
+                Bookedflights flight = controller.flights[index];
+                // Build UI for each flight item
+                // Example: return FlightItemWidget(flight: flight);
+                return Container(); // Replace Container() with your UI widget
+              },
+            );
+          }
+        }));
   }
 }
