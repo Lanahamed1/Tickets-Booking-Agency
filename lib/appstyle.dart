@@ -104,4 +104,13 @@ class Styles {
       TextStyle(fontSize: 14, color: textColor5, fontWeight: FontWeight.w700);
   static TextStyle headLineStyle29 =
       TextStyle(fontSize: 14, color: textColor2, fontWeight: FontWeight.w400);
+  static TextStyle headLineStyle30 =
+      TextStyle(color: textColor7, fontSize: 18, fontWeight: FontWeight.w900);
+  static TextStyle headLineStyle31 =
+      TextStyle(fontSize: 16, color: textColor5, fontWeight: FontWeight.w600);
+  static TextStyle headLineStyle32 = const TextStyle(
+      letterSpacing: 0.4,
+      fontSize: 20,
+      color: Colors.white,
+      fontWeight: FontWeight.w500);
 }
