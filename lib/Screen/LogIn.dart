@@ -234,7 +234,7 @@ class LogIn extends StatelessWidget {
                                   horizontal: 11, vertical: 18),
                               minWidth: 20,
                               onPressed: () {
-                                Get.to(SignUp());
+                                Get.to(() => SignUp());
                               },
                               child: Text("Register",
                                   style: Styles.headLineStyle10),
