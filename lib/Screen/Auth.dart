@@ -40,9 +40,9 @@ class Auth {
     );
     if (response.statusCode == 200) {
       String token = response.body;
-
       await TokenManager.saveToken(token);
-      print('this token $token');
+      
+      print(' token $token');
 
       return true;
     } else {
@@ -72,7 +72,7 @@ Future<void> updateUserProfile(
 
   try {
     // Retrieve the token using TokenManager
-    String? token = await TokenManager.getToken();
+    Map<String, dynamic>? token = await TokenManager.getTokenMap();
 
     if (token != null) {
       final response = await http.post(

@@ -45,10 +45,9 @@ class _Mainpage extends State<Mainpage> {
           onTabChange: (value) {
             setState(() {
               currentIndex = value;
-              // Check if the "My Booking" tab is selected (index 3)
               if (currentIndex == 3) {
-                // Call fetchBookedFlights method when "My Booking" tab is selected
-                flightController.fetchBookedFlights();
+                                flightController.fetchBookedFlights();
+
               }
             });
           },

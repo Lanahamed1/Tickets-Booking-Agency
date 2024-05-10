@@ -69,4 +69,10 @@ class FlightSearchController extends GetxController {
     selectItem = number;
     update();
   }
+
+
+
+
+
+  
 }
