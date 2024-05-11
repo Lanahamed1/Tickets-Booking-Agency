@@ -169,7 +169,7 @@ class BookingDetails extends StatelessWidget {
                 child: MaterialButton(
                   onPressed: () {},
                   child: const Text(
-                    "Booking",
+                    "pyment",
                     textAlign: TextAlign.right,
                     style: TextStyle(
                         letterSpacing: 0.4,
