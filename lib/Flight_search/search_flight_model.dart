@@ -40,7 +40,7 @@ class Flight {
     String airportArrival,
   ) async {
     final response = await http.get(Uri.parse(
-        'http://127.0.0.1:8000/flight/search/?departure_city=$departure_city&airportArrival=$airportArrival'));
+        'https://viawise.onrender.com/flight/search1/?departure_city=$departure_city&airportArrival=$airportArrival'));
     print(response.body);
     print(response.statusCode);
     List<Flight> flights = [];

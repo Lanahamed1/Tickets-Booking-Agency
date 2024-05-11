@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tickets_booking_agency/Flight/Flights.dart';
 import 'package:flutter_tickets_booking_agency/Flight_search/mainsearch_controller.dart';
+import 'package:flutter_tickets_booking_agency/Flight_search/search_flight_model.dart';
 import 'package:flutter_tickets_booking_agency/appstyle.dart';
 import 'package:get/get.dart';
 
@@ -70,7 +72,7 @@ class FlightSearch extends StatelessWidget {
           _buildDestinationCityDropdown(),
           _buildStartDateSelection(context),
           _buildpaymentype(),
-          _buildSearchFlightsButton()
+          _buildSearchFlightssButton()
         ],
       ),
     );
@@ -269,7 +271,7 @@ class FlightSearch extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(
-                  'assets/images/paypal.jpg',
+                  'images/paypal.jpg',
                   height: 40,
                   width: 40,
                 ),
@@ -294,7 +296,7 @@ class FlightSearch extends StatelessWidget {
     );
   }
 
-  Widget _buildSearchFlightsButton() {
+  Widget _buildSearchFlightssButton() {
     return Column(
       children: [
         SizedBox(
@@ -308,7 +310,12 @@ class FlightSearch extends StatelessWidget {
               borderRadius: BorderRadius.circular(150),
             ),
             child: MaterialButton(
-                onPressed: () {},
+                onPressed: () 
+                   async {
+            var flights = await Flight.fetchFlight("dmascuse", 'dmascuse');
+            Get.to(Flights(flights: flights)); // Pass flights as arguments
+          
+                },
                 child: Text("Search Flights",
                     textAlign: TextAlign.right, style: Styles.headLineStyle9))),
       ],
@@ -371,5 +378,26 @@ class FlightSearch extends StatelessWidget {
         ),
       ])
     ]);
+  }
+
+  Widget _buildSearchFlightsButton() {
+    return Column(
+      children: [
+        SizedBox(
+          height: 24,
+        ),
+        Container(
+            width: 300,
+            height: 45,
+            decoration: BoxDecoration(
+              color: const Color(0xFF1765FC),
+              borderRadius: BorderRadius.circular(150),
+            ),
+            child: MaterialButton(
+                onPressed: () {},
+                child: Text("Search Flights",
+                    textAlign: TextAlign.right, style: Styles.headLineStyle9))),
+      ],
+    );
   }
 }

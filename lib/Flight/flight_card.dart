@@ -1,22 +1,30 @@
 // ignore_for_file: unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
-import 'package:flutter_tickets_booking_agency/Flight/flight_details.dart';
-import 'package:flutter_tickets_booking_agency/Flight/flight_model.dart';
-import 'package:flutter_tickets_booking_agency/appstyle.dart';
-import 'package:get/get.dart';
+import 'package:flutter_tickets_booking_agency/Booking/Booking.dart';
 
 class FlightCard extends StatelessWidget {
-  final flightModel flights;
+  final int id;
+  final double price;
+  final String destination;
+  final String departure;
+  final DateTime departureTime;
+  final String airline;
+  final String duration;
 
-  const FlightCard({
-    super.key,
-    required this.flights,
-  });
+  FlightCard(
+      {required this.id,
+      required this.price,
+      required this.departureTime,
+      required this.destination,
+      required this.departure,
+      required this.duration,
+      required this.airline});
+
   @override
   Widget build(BuildContext context) {
     return Card(
-        margin: const EdgeInsets.only(
-            left: 20.0, right: 20.0, bottom: 20.0, top: 20),
+        margin: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
         child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50.0),
@@ -30,9 +38,7 @@ class FlightCard extends StatelessWidget {
                   ),
                 ]),
             child: MaterialButton(
-              onPressed: () {
-                Get.to(() => FlightInfoScreen(), arguments: flights);
-              },
+              onPressed: () {},
               clipBehavior: Clip.antiAlias,
               elevation: 90,
               child: Padding(
@@ -41,44 +47,44 @@ class FlightCard extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Row(children: <Widget>[
-                      Text(flights.airline, style: Styles.headLineStyle21)
+                      Text(
+                        airline,
+                        style: const TextStyle(
+                            color: Color(0xFF1765FC),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w900),
+                      ),
                     ]),
+                    Text("$id"),
                     const SizedBox(height: 10.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          flights.departure,
-                          style: Styles.headLineStyle31,
-                        ),
-                        Text(
-                          flights.destination,
-                          style: Styles.headLineStyle31,
-                        )
-                      ],
+                      children: <Widget>[Text(departure), Text(destination)],
                     ),
                     const SizedBox(height: 8.0),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Text('${flights.departureTime}'),
+                          Text('$departureTime'),
                         ]),
                     const SizedBox(height: 20.0),
-                    const Row(
-                      children: <Widget>[
-                        Icon(Icons.blur_on, color: Color(0xFF1765FC)),
-                        Text(' - - - - - - - - - - - - - - - - -  '),
-                        Icon(Icons.airplane_ticket_outlined,
-                            color: Color(0xFF1765FC)),
-                        Text(' - - - - - - - - - - - - - - - -  '),
-                        Icon(Icons.blur_on, color: Color(0xFF1765FC)),
-                      ],
+                    Container(
+                      child: const Row(
+                        children: <Widget>[
+                          Icon(Icons.blur_on, color: Color(0xFF1765FC)),
+                          Text('- - - - - - - - -  '),
+                          Icon(Icons.airplane_ticket_outlined,
+                              color: Color(0xFF1765FC)),
+                          Text('- - - - - - - - - -'),
+                          Icon(Icons.blur_on, color: Color(0xFF1765FC)),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 20.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text('${flights.duration}'),
+                        Text('$duration'),
                       ],
                     ),
                     Row(
@@ -87,12 +93,16 @@ class FlightCard extends StatelessWidget {
                           padding: const EdgeInsets.only(
                               top: 0, bottom: 0, left: 320, right: 0),
                           child: Text(
-                            '${flights.price}\$',
-                            style: Styles.headLineStyle30,
+                            '$price',
+                            style: const TextStyle(
+                                color: Colors.green,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w900),
                           ),
                         )
                       ],
                     ),
+                    const SizedBox(height: 20.0),
                     Align(
                       alignment: Alignment.topRight,
                       child: Container(
