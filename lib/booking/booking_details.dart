@@ -157,7 +157,6 @@ class BookingDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              Text('are you sure '),
               const SizedBox(height: 50),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 49),
