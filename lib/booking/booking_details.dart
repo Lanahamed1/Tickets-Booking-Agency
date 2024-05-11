@@ -144,7 +144,7 @@ class BookingDetails extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Text(
-                              ' 255',
+                              '233\$',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 18,
