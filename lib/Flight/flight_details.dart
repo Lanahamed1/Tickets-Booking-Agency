@@ -33,7 +33,6 @@ class FlightInfoScreen extends StatelessWidget {
             child: Container(
               child: Column(
                 children: <Widget>[
-                
                   Row(children: <Widget>[
                     Text(
                       flight.airline,
@@ -84,7 +83,11 @@ class FlightInfoScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20.0),
-                 
+                  Row(
+                    children: [
+                      Text("destination: ${flight.destination}"),
+                    ],
+                  ),
                   const SizedBox(height: 20.0),
                   Row(children: <Widget>[
                     Text('departureTime: ${flight.departureTime}'),
