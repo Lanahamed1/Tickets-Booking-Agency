@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BookingDetails extends StatelessWidget {
-  const BookingDetails({Key? key}) : super(key: key);
+  BookingDetails({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
