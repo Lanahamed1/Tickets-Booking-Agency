@@ -102,7 +102,17 @@ class FlightCard extends StatelessWidget {
                         )
                       ],
                     ),
-                   
+                    const SizedBox(height: 20.0),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(50.0),
+                              topRight: Radius.circular(50.0)),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
